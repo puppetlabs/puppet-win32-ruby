@@ -10,7 +10,7 @@ module Config
   DESTDIR = TOPDIR && TOPDIR[/\A[a-z]:/i] || '' unless defined? DESTDIR
   CONFIG = {}
   CONFIG["DESTDIR"] = DESTDIR
-  CONFIG["PATCHLEVEL"] = "370"
+  CONFIG["PATCHLEVEL"] = "371"
   CONFIG["INSTALL"] = '/usr/bin/install -c'
   CONFIG["EXEEXT"] = ".exe"
   CONFIG["prefix"] = (TOPDIR || DESTDIR + "")
@@ -19,7 +19,7 @@ module Config
   CONFIG["RUBY_SO_NAME"] = "msvcrt-ruby18"
   CONFIG["MANTYPE"] = "man"
   CONFIG["NROFF"] = "/bin/false"
-  CONFIG["configure_args"] = " '--enable-shared' '--with-winsock2' '--disable-install-doc' 'CFLAGS=-g -O2 -DFD_SETSIZE=256' '--with-tcl-dir=C:/Users/Luis/Code/oneclick/rubyinstaller/sandbox/tcl' '--with-tk-dir=C:/Users/Luis/Code/oneclick/rubyinstaller/sandbox/tk' '--with-tcllib=tcl85-ri' '--with-tklib=tk85-ri' '--prefix=' 'LDFLAGS='"
+  CONFIG["configure_args"] = " '--enable-shared' '--with-winsock2' '--disable-install-doc' 'CFLAGS=-g -O2 -DFD_SETSIZE=256' '--prefix=' 'LDFLAGS='"
   CONFIG["vendordir"] = "$(libdir)/ruby/vendor_ruby"
   CONFIG["sitedir"] = "$(libdir)/ruby/site_ruby"
   CONFIG["sitearch"] = "i386-msvcrt"
