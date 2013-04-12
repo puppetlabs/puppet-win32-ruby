@@ -1,0 +1,2 @@
+U:RDoc::Attr[iI"ciphers:EFI"Stomp::SSLParams#ciphers;FI"RW;F:publico:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[I"KOptional list of SSL ciphers to be used.  In the format documented for:encoding"IBM437I"Ruby's OpenSSL.;@:
+@file0FI"lib/stomp/sslparams.rb;@

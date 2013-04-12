@@ -1,0 +1,2 @@
+U:RDoc::Attr[iI"targetIdentifier:EFI"5RGen::MetamodelBuilder::MMProxy#targetIdentifier;FI"RW;F:publico:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[I"TThe +targetIdentifer+ is an object identifying the element the proxy represents:encoding"IBM437:
+@file0FI""lib/rgen/metamodel_builder.rb;@

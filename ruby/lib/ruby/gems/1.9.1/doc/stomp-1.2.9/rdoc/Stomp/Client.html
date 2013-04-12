@@ -1,0 +1,1573 @@
+<?xml version="1.0" encoding="IBM437"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta content="text/html; charset=IBM437" http-equiv="Content-Type" />
+
+  <title>Class: Stomp::Client</title>
+
+  <link rel="stylesheet" href="../rdoc.css" type="text/css" media="screen" />
+
+  <script src="../js/jquery.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../js/thickbox-compressed.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../js/quicksearch.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../js/darkfish.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+<body id="top" class="class">
+
+  <div id="metadata">
+    <div id="home-metadata">
+      <div id="home-section" class="section">
+        <h3 class="section-header">
+          <a href="../index.html">Home</a>
+          <a href="../index.html#classes">Classes</a>
+          <a href="../index.html#methods">Methods</a>
+        </h3>
+      </div>
+    </div>
+
+    <div id="file-metadata">
+      <div id="file-list-section" class="section">
+        <h3 class="section-header">In Files</h3>
+        <div class="section-body">
+          <ul>
+          
+            <li><a href="../lib/client/utils_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+              class="thickbox" title="lib/client/utils.rb">lib/client/utils.rb</a></li>
+          
+            <li><a href="../lib/stomp/client_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+              class="thickbox" title="lib/stomp/client.rb">lib/stomp/client.rb</a></li>
+          
+          </ul>
+        </div>
+      </div>
+
+      
+    </div>
+
+    <div id="class-metadata">
+      
+      <!-- Parent Class -->
+      <div id="parent-class-section" class="section">
+        <h3 class="section-header">Parent</h3>
+        
+        <p class="link"><a href="../Object.html">Object</a></p>
+        
+      </div>
+      
+
+      
+
+      
+
+      
+      <!-- Method Quickref -->
+      <div id="method-list-section" class="section">
+        <h3 class="section-header">Methods</h3>
+        <ul class="link-list">
+          
+          <li><a href="#method-c-new">::new</a></li>
+          
+          <li><a href="#method-c-open">::open</a></li>
+          
+          <li><a href="#method-i-abort">#abort</a></li>
+          
+          <li><a href="#method-i-acknowledge">#acknowledge</a></li>
+          
+          <li><a href="#method-i-autoflush">#autoflush</a></li>
+          
+          <li><a href="#method-i-autoflush-3D">#autoflush=</a></li>
+          
+          <li><a href="#method-i-begin">#begin</a></li>
+          
+          <li><a href="#method-i-close">#close</a></li>
+          
+          <li><a href="#method-i-closed-3F">#closed?</a></li>
+          
+          <li><a href="#method-i-commit">#commit</a></li>
+          
+          <li><a href="#method-i-connection_frame">#connection_frame</a></li>
+          
+          <li><a href="#method-i-disconnect_receipt">#disconnect_receipt</a></li>
+          
+          <li><a href="#method-i-hbrecv_count">#hbrecv_count</a></li>
+          
+          <li><a href="#method-i-hbrecv_interval">#hbrecv_interval</a></li>
+          
+          <li><a href="#method-i-hbsend_count">#hbsend_count</a></li>
+          
+          <li><a href="#method-i-hbsend_interval">#hbsend_interval</a></li>
+          
+          <li><a href="#method-i-join">#join</a></li>
+          
+          <li><a href="#method-i-nack">#nack</a></li>
+          
+          <li><a href="#method-i-open-3F">#open?</a></li>
+          
+          <li><a href="#method-i-poll">#poll</a></li>
+          
+          <li><a href="#method-i-protocol">#protocol</a></li>
+          
+          <li><a href="#method-i-publish">#publish</a></li>
+          
+          <li><a href="#method-i-running">#running</a></li>
+          
+          <li><a href="#method-i-set_logger">#set_logger</a></li>
+          
+          <li><a href="#method-i-sha1">#sha1</a></li>
+          
+          <li><a href="#method-i-subscribe">#subscribe</a></li>
+          
+          <li><a href="#method-i-unreceive">#unreceive</a></li>
+          
+          <li><a href="#method-i-unsubscribe">#unsubscribe</a></li>
+          
+          <li><a href="#method-i-uuid">#uuid</a></li>
+          
+          <li><a href="#method-i-valid_utf8-3F">#valid_utf8?</a></li>
+          
+        </ul>
+      </div>
+      
+
+      
+    </div>
+
+    <div id="project-metadata">
+      
+      
+      <div id="fileindex-section" class="section project-section">
+        <h3 class="section-header">Files</h3>
+        <ul>
+        
+          <li class="file"><a href="../CHANGELOG_rdoc.html">CHANGELOG.rdoc</a></li>
+        
+          <li class="file"><a href="../LICENSE.html">LICENSE</a></li>
+        
+          <li class="file"><a href="../README_rdoc.html">README.rdoc</a></li>
+        
+        </ul>
+      </div>
+      
+
+      <div id="classindex-section" class="section project-section">
+        <h3 class="section-header">Class/Module Index
+          <span class="search-toggle"><img src="../images/find.png"
+            height="16" width="16" alt="[+]"
+            title="show/hide quicksearch" /></span></h3>
+        <form action="#" method="get" accept-charset="utf-8" class="initially-hidden">
+        <fieldset>
+          <legend>Quicksearch</legend>
+          <input type="text" name="quicksearch" value=""
+            class="quicksearch-field" />
+        </fieldset>
+        </form>
+
+        <ul class="link-list">
+        
+          <li><a href="../Stomp.html">Stomp</a></li>
+        
+          <li><a href="../Stomp/Client.html">Stomp::Client</a></li>
+        
+          <li><a href="../Stomp/Connection.html">Stomp::Connection</a></li>
+        
+          <li><a href="../Stomp/Error.html">Stomp::Error</a></li>
+        
+          <li><a href="../Stomp/Error/DuplicateSubscription.html">Stomp::Error::DuplicateSubscription</a></li>
+        
+          <li><a href="../Stomp/Error/InvalidFormat.html">Stomp::Error::InvalidFormat</a></li>
+        
+          <li><a href="../Stomp/Error/InvalidHeartBeatHeaderError.html">Stomp::Error::InvalidHeartBeatHeaderError</a></li>
+        
+          <li><a href="../Stomp/Error/InvalidMessageLength.html">Stomp::Error::InvalidMessageLength</a></li>
+        
+          <li><a href="../Stomp/Error/InvalidServerCommand.html">Stomp::Error::InvalidServerCommand</a></li>
+        
+          <li><a href="../Stomp/Error/LoggerConnectionError.html">Stomp::Error::LoggerConnectionError</a></li>
+        
+          <li><a href="../Stomp/Error/MaxReconnectAttempts.html">Stomp::Error::MaxReconnectAttempts</a></li>
+        
+          <li><a href="../Stomp/Error/MessageIDRequiredError.html">Stomp::Error::MessageIDRequiredError</a></li>
+        
+          <li><a href="../Stomp/Error/NoCurrentConnection.html">Stomp::Error::NoCurrentConnection</a></li>
+        
+          <li><a href="../Stomp/Error/PacketParsingTimeout.html">Stomp::Error::PacketParsingTimeout</a></li>
+        
+          <li><a href="../Stomp/Error/ProtocolErrorConnect.html">Stomp::Error::ProtocolErrorConnect</a></li>
+        
+          <li><a href="../Stomp/Error/SSLClientParamsError.html">Stomp::Error::SSLClientParamsError</a></li>
+        
+          <li><a href="../Stomp/Error/SSLNoCertFileError.html">Stomp::Error::SSLNoCertFileError</a></li>
+        
+          <li><a href="../Stomp/Error/SSLNoKeyFileError.html">Stomp::Error::SSLNoKeyFileError</a></li>
+        
+          <li><a href="../Stomp/Error/SSLNoTruststoreFileError.html">Stomp::Error::SSLNoTruststoreFileError</a></li>
+        
+          <li><a href="../Stomp/Error/SSLUnreadableCertFileError.html">Stomp::Error::SSLUnreadableCertFileError</a></li>
+        
+          <li><a href="../Stomp/Error/SSLUnreadableKeyFileError.html">Stomp::Error::SSLUnreadableKeyFileError</a></li>
+        
+          <li><a href="../Stomp/Error/SSLUnreadableTruststoreFileError.html">Stomp::Error::SSLUnreadableTruststoreFileError</a></li>
+        
+          <li><a href="../Stomp/Error/SocketOpenTimeout.html">Stomp::Error::SocketOpenTimeout</a></li>
+        
+          <li><a href="../Stomp/Error/StompServerError.html">Stomp::Error::StompServerError</a></li>
+        
+          <li><a href="../Stomp/Error/SubscriptionRequiredError.html">Stomp::Error::SubscriptionRequiredError</a></li>
+        
+          <li><a href="../Stomp/Error/UTF8ValidationError.html">Stomp::Error::UTF8ValidationError</a></li>
+        
+          <li><a href="../Stomp/Error/UnsupportedProtocolError.html">Stomp::Error::UnsupportedProtocolError</a></li>
+        
+          <li><a href="../Stomp/HeaderCodec.html">Stomp::HeaderCodec</a></li>
+        
+          <li><a href="../Stomp/Message.html">Stomp::Message</a></li>
+        
+          <li><a href="../Stomp/SSLParams.html">Stomp::SSLParams</a></li>
+        
+          <li><a href="../Client11Example1.html">Client11Example1</a></li>
+        
+          <li><a href="../Client11PutGet1.html">Client11PutGet1</a></li>
+        
+          <li><a href="../Connection11Example1.html">Connection11Example1</a></li>
+        
+          <li><a href="../Connection11Example2.html">Connection11Example2</a></li>
+        
+          <li><a href="../ExampleConsumer.html">ExampleConsumer</a></li>
+        
+          <li><a href="../ExamplePublisher.html">ExamplePublisher</a></li>
+        
+          <li><a href="../ExampleRubyCiphers.html">ExampleRubyCiphers</a></li>
+        
+          <li><a href="../ExampleSSL1.html">ExampleSSL1</a></li>
+        
+          <li><a href="../ExampleSSL1C.html">ExampleSSL1C</a></li>
+        
+          <li><a href="../ExampleSSL2.html">ExampleSSL2</a></li>
+        
+          <li><a href="../ExampleSSL2C.html">ExampleSSL2C</a></li>
+        
+          <li><a href="../ExampleSSL3.html">ExampleSSL3</a></li>
+        
+          <li><a href="../ExampleSSL3C.html">ExampleSSL3C</a></li>
+        
+          <li><a href="../ExampleSSL4.html">ExampleSSL4</a></li>
+        
+          <li><a href="../ExampleSSL4C.html">ExampleSSL4C</a></li>
+        
+          <li><a href="../ExampleTopicConsumer.html">ExampleTopicConsumer</a></li>
+        
+          <li><a href="../ExampleTopicPublisher.html">ExampleTopicPublisher</a></li>
+        
+          <li><a href="../Hash.html">Hash</a></li>
+        
+          <li><a href="../HeartBeatExample1.html">HeartBeatExample1</a></li>
+        
+          <li><a href="../LoggerExample.html">LoggerExample</a></li>
+        
+          <li><a href="../Object.html">Object</a></li>
+        
+          <li><a href="../Publish11Example1.html">Publish11Example1</a></li>
+        
+          <li><a href="../Receive11Example1.html">Receive11Example1</a></li>
+        
+          <li><a href="../Receive11Example2.html">Receive11Example2</a></li>
+        
+          <li><a href="../RepeatedHeadersExample.html">RepeatedHeadersExample</a></li>
+        
+          <li><a href="../SSLLoggerExample.html">SSLLoggerExample</a></li>
+        
+          <li><a href="../Slogger.html">Slogger</a></li>
+        
+          <li><a href="../Stomp11Common.html">Stomp11Common</a></li>
+        
+          <li><a href="../TestBase.html">TestBase</a></li>
+        
+          <li><a href="../TestClient.html">TestClient</a></li>
+        
+          <li><a href="../TestCodec.html">TestCodec</a></li>
+        
+          <li><a href="../TestConnection.html">TestConnection</a></li>
+        
+          <li><a href="../TestConnection1P.html">TestConnection1P</a></li>
+        
+          <li><a href="../TestMessage.html">TestMessage</a></li>
+        
+          <li><a href="../TestSSL.html">TestSSL</a></li>
+        
+          <li><a href="../Tlogger.html">Tlogger</a></li>
+        
+        </ul>
+        <div id="no-class-search-results" style="display: none;">No matching classes.</div>
+      </div>
+
+      
+    </div>
+  </div>
+
+  <div id="documentation">
+    <h1 class="class">Stomp::Client</h1>
+
+    <div id="description" class="description">
+      
+<p>Typical <a href="../Stomp.html">Stomp</a> client class. Uses a listener
+thread to receive frames from the server, any thread can send.</p>
+
+<p>Receives all happen in one thread, so consider not doing much processing in
+that thread if you have much message volume.</p>
+
+    </div><!-- description -->
+
+    
+    
+    
+    <div id="5Buntitled-5D" class="documentation-section">
+      
+
+      
+
+      
+
+      
+      <!-- Attributes -->
+      <div id="attribute-method-details" class="method-section section">
+        <h3 class="section-header">Attributes</h3>
+
+        
+        <div id="host-attribute-method" class="method-detail">
+          <a name="host"></a>
+          
+          <div class="method-heading attribute-method-heading">
+            <span class="method-name">host</span><span
+              class="attribute-access-type">[R]</span>
+          </div>
+
+          <div class="method-description">
+          
+          <p>The <a href="../Stomp.html">Stomp</a> host specified by the client.</p>
+          
+          </div>
+        </div>
+        
+        <div id="login-attribute-method" class="method-detail">
+          <a name="login"></a>
+          
+          <div class="method-heading attribute-method-heading">
+            <span class="method-name">login</span><span
+              class="attribute-access-type">[R]</span>
+          </div>
+
+          <div class="method-description">
+          
+          <p>The login ID used by the client.</p>
+          
+          </div>
+        </div>
+        
+        <div id="parameters-attribute-method" class="method-detail">
+          <a name="parameters"></a>
+          
+          <div class="method-heading attribute-method-heading">
+            <span class="method-name">parameters</span><span
+              class="attribute-access-type">[R]</span>
+          </div>
+
+          <div class="method-description">
+          
+          <p>Parameters <a href="../Hash.html">Hash</a>, possibly nil for a non-hashed
+connect.</p>
+          
+          </div>
+        </div>
+        
+        <div id="passcode-attribute-method" class="method-detail">
+          <a name="passcode"></a>
+          
+          <div class="method-heading attribute-method-heading">
+            <span class="method-name">passcode</span><span
+              class="attribute-access-type">[R]</span>
+          </div>
+
+          <div class="method-description">
+          
+          <p>The login credentials used by the client.</p>
+          
+          </div>
+        </div>
+        
+        <div id="port-attribute-method" class="method-detail">
+          <a name="port"></a>
+          
+          <div class="method-heading attribute-method-heading">
+            <span class="method-name">port</span><span
+              class="attribute-access-type">[R]</span>
+          </div>
+
+          <div class="method-description">
+          
+          <p>The <a href="../Stomp.html">Stomp</a> host's listening port.</p>
+          
+          </div>
+        </div>
+        
+        <div id="reliable-attribute-method" class="method-detail">
+          <a name="reliable"></a>
+          
+          <div class="method-heading attribute-method-heading">
+            <span class="method-name">reliable</span><span
+              class="attribute-access-type">[R]</span>
+          </div>
+
+          <div class="method-description">
+          
+          <p>Is this connection reliable?</p>
+          
+          </div>
+        </div>
+        
+      </div><!-- attribute-method-details -->
+      
+
+      <!-- Methods -->
+      
+      <div id="public-class-method-details" class="method-section section">
+        <h3 class="section-header">Public Class Methods</h3>
+
+      
+        <div id="new-method" class="method-detail ">
+          <a name="method-c-new"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">new</span><span
+              class="method-args">(login = '', passcode = '', host = 'localhost', port = 61613, reliable = false, autoflush = false)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p>A new <a href="Client.html">Client</a> object can be initialized using
+three forms:</p>
+
+<p><a href="../Hash.html">Hash</a> (this is the recommended <a
+href="Client.html">Client</a> initialization method):</p>
+
+<pre>hash = {
+  :hosts =&gt; [
+    {:login =&gt; &quot;login1&quot;, :passcode =&gt; &quot;passcode1&quot;, :host =&gt; &quot;localhost&quot;, :port =&gt; 61616, :ssl =&gt; false},
+    {:login =&gt; &quot;login2&quot;, :passcode =&gt; &quot;passcode2&quot;, :host =&gt; &quot;remotehost&quot;, :port =&gt; 61617, :ssl =&gt; false}
+  ],
+  :reliable =&gt; true,
+  :initial_reconnect_delay =&gt; 0.01,
+  :max_reconnect_delay =&gt; 30.0,
+  :use_exponential_back_off =&gt; true,
+  :back_off_multiplier =&gt; 2,
+  :max_reconnect_attempts =&gt; 0,
+  :randomize =&gt; false,
+  :connect_timeout =&gt; 0,
+  :connect_headers =&gt; {},
+  :parse_timeout =&gt; 5,
+  :logger =&gt; nil,
+  :dmh =&gt; false,
+  :closed_check =&gt; true,
+  :hbser =&gt; false,
+  :stompconn =&gt; false,
+  :usecrlf =&gt; false,
+}
+
+e.g. c = Stomp::Client.new(hash)</pre>
+
+<p>Positional parameters:</p>
+
+<pre>login     (String,  default : '')
+passcode  (String,  default : '')
+host      (String,  default : 'localhost')
+port      (Integer, default : 61613)
+reliable  (Boolean, default : false)
+
+e.g. c = Stomp::Client.new('login', 'passcode', 'localhost', 61613, true)</pre>
+
+<p><a href="../Stomp.html">Stomp</a> URL :</p>
+
+<pre>A Stomp URL must begin with 'stomp://' and can be in one of the following forms:
+
+stomp://host:port
+stomp://host.domain.tld:port
+stomp://login:passcode@host:port
+stomp://login:passcode@host.domain.tld:port
+
+e.g. c = Stomp::Client.new(urlstring)</pre>
+            
+
+            
+            <div class="method-source-code" id="new-source">
+<pre>
+<span class="ruby-comment"># File lib/stomp/client.rb, line 80</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">login</span> = <span class="ruby-string">''</span>, <span class="ruby-identifier">passcode</span> = <span class="ruby-string">''</span>, <span class="ruby-identifier">host</span> = <span class="ruby-string">'localhost'</span>, <span class="ruby-identifier">port</span> = <span class="ruby-value">61613</span>, <span class="ruby-identifier">reliable</span> = <span class="ruby-keyword">false</span>, <span class="ruby-identifier">autoflush</span> = <span class="ruby-keyword">false</span>)
+  <span class="ruby-identifier">parse_hash_params</span>(<span class="ruby-identifier">login</span>) <span class="ruby-operator">||</span>
+    <span class="ruby-identifier">parse_stomp_url</span>(<span class="ruby-identifier">login</span>) <span class="ruby-operator">||</span>
+    <span class="ruby-identifier">parse_failover_url</span>(<span class="ruby-identifier">login</span>) <span class="ruby-operator">||</span>
+    <span class="ruby-identifier">parse_positional_params</span>(<span class="ruby-identifier">login</span>, <span class="ruby-identifier">passcode</span>, <span class="ruby-identifier">host</span>, <span class="ruby-identifier">port</span>, <span class="ruby-identifier">reliable</span>)
+
+  <span class="ruby-identifier">check_arguments!</span>()
+
+  <span class="ruby-ivar">@id_mutex</span> = <span class="ruby-constant">Mutex</span>.<span class="ruby-identifier">new</span>()
+  <span class="ruby-ivar">@ids</span> = <span class="ruby-value">1</span>
+
+  <span class="ruby-identifier">create_connection</span>(<span class="ruby-identifier">autoflush</span>)
+
+  <span class="ruby-identifier">start_listeners</span>()
+
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- new-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- new-method -->
+
+      
+        <div id="open-method" class="method-detail ">
+          <a name="method-c-open"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">open</span><span
+              class="method-args">(login = '', passcode = '', host = 'localhost', port = 61613, reliable = false)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p>open is syntactic sugar for '<a
+href="Client.html#method-c-new">Client.new</a>', see 'initialize' for
+usage.</p>
+            
+
+            
+            <div class="method-source-code" id="open-source">
+<pre>
+<span class="ruby-comment"># File lib/stomp/client.rb, line 108</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">open</span>(<span class="ruby-identifier">login</span> = <span class="ruby-string">''</span>, <span class="ruby-identifier">passcode</span> = <span class="ruby-string">''</span>, <span class="ruby-identifier">host</span> = <span class="ruby-string">'localhost'</span>, <span class="ruby-identifier">port</span> = <span class="ruby-value">61613</span>, <span class="ruby-identifier">reliable</span> = <span class="ruby-keyword">false</span>)
+  <span class="ruby-constant">Client</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">login</span>, <span class="ruby-identifier">passcode</span>, <span class="ruby-identifier">host</span>, <span class="ruby-identifier">port</span>, <span class="ruby-identifier">reliable</span>)
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- open-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- open-method -->
+
+      
+      </div><!-- public-class-method-details -->
+    
+      <div id="public-instance-method-details" class="method-section section">
+        <h3 class="section-header">Public Instance Methods</h3>
+
+      
+        <div id="abort-method" class="method-detail ">
+          <a name="method-i-abort"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">abort</span><span
+              class="method-args">(name, headers = {})</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p>Abort aborts work in a transaction by name.</p>
+            
+
+            
+            <div class="method-source-code" id="abort-source">
+<pre>
+<span class="ruby-comment"># File lib/stomp/client.rb, line 124</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">abort</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">headers</span> = {})
+  <span class="ruby-ivar">@connection</span>.<span class="ruby-identifier">abort</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">headers</span>)
+
+  <span class="ruby-comment"># replay any ack'd messages in this transaction</span>
+  <span class="ruby-identifier">replay_list</span> = <span class="ruby-ivar">@replay_messages_by_txn</span>[<span class="ruby-identifier">name</span>]
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">replay_list</span>
+    <span class="ruby-identifier">replay_list</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">message</span><span class="ruby-operator">|</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">listener</span> = <span class="ruby-identifier">find_listener</span>(<span class="ruby-identifier">message</span>)
+        <span class="ruby-identifier">listener</span>.<span class="ruby-identifier">call</span>(<span class="ruby-identifier">message</span>)
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- abort-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- abort-method -->
+
+      
+        <div id="acknowledge-method" class="method-detail ">
+          <a name="method-i-acknowledge"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">acknowledge</span><span
+              class="method-args">(message, headers = {})</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p>Acknowledge a message, used when a subscription has specified client
+acknowledgement ( connection.subscribe("/queue/a",{:ack =&gt; 'client'}).
+Accepts a transaction header ( :transaction =&gt; 'some_transaction_id' ).</p>
+            
+
+            
+            <div class="method-source-code" id="acknowledge-source">
+<pre>
+<span class="ruby-comment"># File lib/stomp/client.rb, line 171</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">acknowledge</span>(<span class="ruby-identifier">message</span>, <span class="ruby-identifier">headers</span> = {})
+  <span class="ruby-identifier">txn_id</span> = <span class="ruby-identifier">headers</span>[<span class="ruby-value">:transaction</span>]
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">txn_id</span>
+    <span class="ruby-comment"># lets keep around messages ack'd in this transaction in case we rollback</span>
+    <span class="ruby-identifier">replay_list</span> = <span class="ruby-ivar">@replay_messages_by_txn</span>[<span class="ruby-identifier">txn_id</span>]
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">replay_list</span>.<span class="ruby-identifier">nil?</span>
+      <span class="ruby-identifier">replay_list</span> = []
+      <span class="ruby-ivar">@replay_messages_by_txn</span>[<span class="ruby-identifier">txn_id</span>] = <span class="ruby-identifier">replay_list</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">replay_list</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">message</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">block_given?</span>
+    <span class="ruby-identifier">headers</span>[<span class="ruby-string">'receipt'</span>] = <span class="ruby-identifier">register_receipt_listener</span> <span class="ruby-identifier">lambda</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">r</span><span class="ruby-operator">|</span> <span class="ruby-keyword">yield</span> <span class="ruby-identifier">r</span>}
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">protocol</span>() <span class="ruby-operator">==</span> <span class="ruby-constant">Stomp</span><span class="ruby-operator">::</span><span class="ruby-constant">SPL_12</span>
+    <span class="ruby-ivar">@connection</span>.<span class="ruby-identifier">ack</span>(<span class="ruby-identifier">message</span>.<span class="ruby-identifier">headers</span>[<span class="ruby-string">'ack'</span>], <span class="ruby-identifier">headers</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-ivar">@connection</span>.<span class="ruby-identifier">ack</span>(<span class="ruby-identifier">message</span>.<span class="ruby-identifier">headers</span>[<span class="ruby-string">'message-id'</span>], <span class="ruby-identifier">headers</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- acknowledge-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- acknowledge-method -->
+
+      
+        <div id="autoflush-method" class="method-detail ">
+          <a name="method-i-autoflush"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">autoflush</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p>autoflush returns the current connection's autoflush setting.</p>
+            
+
+            
+            <div class="method-source-code" id="autoflush-source">
+<pre>
+<span class="ruby-comment"># File lib/stomp/client.rb, line 302</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">autoflush</span>()
+  <span class="ruby-ivar">@connection</span>.<span class="ruby-identifier">autoflush</span>()
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- autoflush-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- autoflush-method -->
+
+      
+        <div id="autoflush-3D-method" class="method-detail ">
+          <a name="method-i-autoflush-3D"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">autoflush=</span><span
+              class="method-args">(af)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p>autoflush= sets the current connection's autoflush setting.</p>
+            
+
+            
+            <div class="method-source-code" id="autoflush-3D-source">
+<pre>
+<span class="ruby-comment"># File lib/stomp/client.rb, line 297</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">autoflush=</span>(<span class="ruby-identifier">af</span>)
+  <span class="ruby-ivar">@connection</span>.<span class="ruby-identifier">autoflush</span> = <span class="ruby-identifier">af</span>
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- autoflush-3D-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- autoflush-3D-method -->
+
+      
+        <div id="begin-method" class="method-detail ">
+          <a name="method-i-begin"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">begin</span><span
+              class="method-args">(name, headers = {})</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p>Begin starts work in a a transaction by name.</p>
+            
+
+            
+            <div class="method-source-code" id="begin-source">
+<pre>
+<span class="ruby-comment"># File lib/stomp/client.rb, line 119</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">begin</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">headers</span> = {})
+  <span class="ruby-ivar">@connection</span>.<span class="ruby-identifier">begin</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">headers</span>)
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- begin-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- begin-method -->
+
+      
+        <div id="close-method" class="method-detail ">
+          <a name="method-i-close"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">close</span><span
+              class="method-args">(headers={})</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p>close frees resources in use by this client.  The listener thread is
+terminated, and disconnect on the connection is called.</p>
+            
+
+            
+            <div class="method-source-code" id="close-source">
+<pre>
+<span class="ruby-comment"># File lib/stomp/client.rb, line 235</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">close</span>(<span class="ruby-identifier">headers</span>={})
+  <span class="ruby-ivar">@listener_thread</span>.<span class="ruby-identifier">exit</span>
+  <span class="ruby-ivar">@connection</span>.<span class="ruby-identifier">disconnect</span>(<span class="ruby-identifier">headers</span>)
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- close-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- close-method -->
+
+      
+        <div id="closed-3F-method" class="method-detail ">
+          <a name="method-i-closed-3F"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">closed?</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p>close? tests if this client connection is closed.</p>
+            
+
+            
+            <div class="method-source-code" id="closed-3F-source">
+<pre>
+<span class="ruby-comment"># File lib/stomp/client.rb, line 229</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">closed?</span>()
+  <span class="ruby-ivar">@connection</span>.<span class="ruby-identifier">closed?</span>()
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- closed-3F-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- closed-3F-method -->
+
+      
+        <div id="commit-method" class="method-detail ">
+          <a name="method-i-commit"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">commit</span><span
+              class="method-args">(name, headers = {})</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p>Commit commits work in a transaction by name.</p>
+            
+
+            
+            <div class="method-source-code" id="commit-source">
+<pre>
+<span class="ruby-comment"># File lib/stomp/client.rb, line 139</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">commit</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">headers</span> = {})
+  <span class="ruby-identifier">txn_id</span> = <span class="ruby-identifier">headers</span>[<span class="ruby-value">:transaction</span>]
+  <span class="ruby-ivar">@replay_messages_by_txn</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">txn_id</span>)
+  <span class="ruby-ivar">@connection</span>.<span class="ruby-identifier">commit</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">headers</span>)
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- commit-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- commit-method -->
+
+      
+        <div id="connection_frame-method" class="method-detail ">
+          <a name="method-i-connection_frame"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">connection_frame</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p>Return the broker's CONNECTED frame to the client.  Misnamed.</p>
+            
+
+            
+            <div class="method-source-code" id="connection_frame-source">
+<pre>
+<span class="ruby-comment"># File lib/stomp/client.rb, line 214</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">connection_frame</span>()
+  <span class="ruby-ivar">@connection</span>.<span class="ruby-identifier">connection_frame</span>
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- connection_frame-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- connection_frame-method -->
+
+      
+        <div id="disconnect_receipt-method" class="method-detail ">
+          <a name="method-i-disconnect_receipt"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">disconnect_receipt</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p>Return any RECEIPT frame received by DISCONNECT.</p>
+            
+
+            
+            <div class="method-source-code" id="disconnect_receipt-source">
+<pre>
+<span class="ruby-comment"># File lib/stomp/client.rb, line 219</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">disconnect_receipt</span>()
+  <span class="ruby-ivar">@connection</span>.<span class="ruby-identifier">disconnect_receipt</span>
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- disconnect_receipt-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- disconnect_receipt-method -->
+
+      
+        <div id="hbrecv_count-method" class="method-detail ">
+          <a name="method-i-hbrecv_count"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">hbrecv_count</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p><a href="Client.html#method-i-hbrecv_count">hbrecv_count</a> returns the
+current connection's heartbeat receive count.</p>
+            
+
+            
+            <div class="method-source-code" id="hbrecv_count-source">
+<pre>
+<span class="ruby-comment"># File lib/stomp/client.rb, line 286</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">hbrecv_count</span>()
+  <span class="ruby-ivar">@connection</span>.<span class="ruby-identifier">hbrecv_count</span>()
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- hbrecv_count-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- hbrecv_count-method -->
+
+      
+        <div id="hbrecv_interval-method" class="method-detail ">
+          <a name="method-i-hbrecv_interval"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">hbrecv_interval</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p><a href="Client.html#method-i-hbrecv_interval">hbrecv_interval</a> returns
+the connection's heartbeat receive interval.</p>
+            
+
+            
+            <div class="method-source-code" id="hbrecv_interval-source">
+<pre>
+<span class="ruby-comment"># File lib/stomp/client.rb, line 276</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">hbrecv_interval</span>()
+  <span class="ruby-ivar">@connection</span>.<span class="ruby-identifier">hbrecv_interval</span>()
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- hbrecv_interval-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- hbrecv_interval-method -->
+
+      
+        <div id="hbsend_count-method" class="method-detail ">
+          <a name="method-i-hbsend_count"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">hbsend_count</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p><a href="Client.html#method-i-hbsend_count">hbsend_count</a> returns the
+current connection's heartbeat send count.</p>
+            
+
+            
+            <div class="method-source-code" id="hbsend_count-source">
+<pre>
+<span class="ruby-comment"># File lib/stomp/client.rb, line 281</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">hbsend_count</span>()
+  <span class="ruby-ivar">@connection</span>.<span class="ruby-identifier">hbsend_count</span>()
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- hbsend_count-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- hbsend_count-method -->
+
+      
+        <div id="hbsend_interval-method" class="method-detail ">
+          <a name="method-i-hbsend_interval"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">hbsend_interval</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p><a href="Client.html#method-i-hbsend_interval">hbsend_interval</a> returns
+the connection's heartbeat send interval.</p>
+            
+
+            
+            <div class="method-source-code" id="hbsend_interval-source">
+<pre>
+<span class="ruby-comment"># File lib/stomp/client.rb, line 271</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">hbsend_interval</span>()
+  <span class="ruby-ivar">@connection</span>.<span class="ruby-identifier">hbsend_interval</span>()
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- hbsend_interval-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- hbsend_interval-method -->
+
+      
+        <div id="join-method" class="method-detail ">
+          <a name="method-i-join"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">join</span><span
+              class="method-args">(limit = nil)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p>join the listener thread for this client, generally used to wait for a quit
+signal.</p>
+            
+
+            
+            <div class="method-source-code" id="join-source">
+<pre>
+<span class="ruby-comment"># File lib/stomp/client.rb, line 114</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">join</span>(<span class="ruby-identifier">limit</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-ivar">@listener_thread</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">limit</span>)
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- join-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- join-method -->
+
+      
+        <div id="nack-method" class="method-detail ">
+          <a name="method-i-nack"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">nack</span><span
+              class="method-args">(message_id, headers = {})</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p><a href="../Stomp.html">Stomp</a> 1.1+ NACK.</p>
+            
+
+            
+            <div class="method-source-code" id="nack-source">
+<pre>
+<span class="ruby-comment"># File lib/stomp/client.rb, line 193</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">nack</span>(<span class="ruby-identifier">message_id</span>, <span class="ruby-identifier">headers</span> = {})
+  <span class="ruby-ivar">@connection</span>.<span class="ruby-identifier">nack</span>(<span class="ruby-identifier">message_id</span>, <span class="ruby-identifier">headers</span>)
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- nack-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- nack-method -->
+
+      
+        <div id="open-3F-method" class="method-detail ">
+          <a name="method-i-open-3F"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">open?</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p>open? tests if this client connection is open.</p>
+            
+
+            
+            <div class="method-source-code" id="open-3F-source">
+<pre>
+<span class="ruby-comment"># File lib/stomp/client.rb, line 224</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">open?</span>
+  <span class="ruby-ivar">@connection</span>.<span class="ruby-identifier">open?</span>()
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- open-3F-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- open-3F-method -->
+
+      
+        <div id="poll-method" class="method-detail ">
+          <a name="method-i-poll"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">poll</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p>Poll for asynchronous messages issued by broker. Return nil of no message
+available, else the message</p>
+            
+
+            
+            <div class="method-source-code" id="poll-source">
+<pre>
+<span class="ruby-comment"># File lib/stomp/client.rb, line 292</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">poll</span>()
+  <span class="ruby-ivar">@connection</span>.<span class="ruby-identifier">poll</span>()
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- poll-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- poll-method -->
+
+      
+        <div id="protocol-method" class="method-detail ">
+          <a name="method-i-protocol"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">protocol</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p>protocol returns the current client's protocol level.</p>
+            
+
+            
+            <div class="method-source-code" id="protocol-source">
+<pre>
+<span class="ruby-comment"># File lib/stomp/client.rb, line 251</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">protocol</span>()
+  <span class="ruby-ivar">@connection</span>.<span class="ruby-identifier">protocol</span>()
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- protocol-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- protocol-method -->
+
+      
+        <div id="publish-method" class="method-detail ">
+          <a name="method-i-publish"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">publish</span><span
+              class="method-args">(destination, message, headers = {})</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p>Publishes message to destination. If a block is given a receipt will be
+requested and passed to the block on receipt. Accepts a transaction header
+( :transaction =&gt; 'some_transaction_id' ).</p>
+            
+
+            
+            <div class="method-source-code" id="publish-source">
+<pre>
+<span class="ruby-comment"># File lib/stomp/client.rb, line 206</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">publish</span>(<span class="ruby-identifier">destination</span>, <span class="ruby-identifier">message</span>, <span class="ruby-identifier">headers</span> = {})
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">block_given?</span>
+    <span class="ruby-identifier">headers</span>[<span class="ruby-string">'receipt'</span>] = <span class="ruby-identifier">register_receipt_listener</span> <span class="ruby-identifier">lambda</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">r</span><span class="ruby-operator">|</span> <span class="ruby-keyword">yield</span> <span class="ruby-identifier">r</span>}
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-ivar">@connection</span>.<span class="ruby-identifier">publish</span>(<span class="ruby-identifier">destination</span>, <span class="ruby-identifier">message</span>, <span class="ruby-identifier">headers</span>)
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- publish-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- publish-method -->
+
+      
+        <div id="running-method" class="method-detail ">
+          <a name="method-i-running"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">running</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p>running checks if the thread was created and is not dead.</p>
+            
+
+            
+            <div class="method-source-code" id="running-source">
+<pre>
+<span class="ruby-comment"># File lib/stomp/client.rb, line 241</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">running</span>()
+  <span class="ruby-ivar">@listener_thread</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-operator">!</span><span class="ruby-ivar">@listener_thread</span>.<span class="ruby-identifier">status</span>
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- running-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- running-method -->
+
+      
+        <div id="set_logger-method" class="method-detail ">
+          <a name="method-i-set_logger"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">set_logger</span><span
+              class="method-args">(logger)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p><a href="Client.html#method-i-set_logger">set_logger</a> identifies a new
+callback logger.</p>
+            
+
+            
+            <div class="method-source-code" id="set_logger-source">
+<pre>
+<span class="ruby-comment"># File lib/stomp/client.rb, line 246</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">set_logger</span>(<span class="ruby-identifier">logger</span>)
+  <span class="ruby-ivar">@connection</span>.<span class="ruby-identifier">set_logger</span>(<span class="ruby-identifier">logger</span>)
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- set_logger-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- set_logger-method -->
+
+      
+        <div id="sha1-method" class="method-detail ">
+          <a name="method-i-sha1"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">sha1</span><span
+              class="method-args">(data)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p>sha1 returns a SHA1 sum of a given string.</p>
+            
+
+            
+            <div class="method-source-code" id="sha1-source">
+<pre>
+<span class="ruby-comment"># File lib/stomp/client.rb, line 261</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">sha1</span>(<span class="ruby-identifier">data</span>)
+  <span class="ruby-ivar">@connection</span>.<span class="ruby-identifier">sha1</span>(<span class="ruby-identifier">data</span>)
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- sha1-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- sha1-method -->
+
+      
+        <div id="subscribe-method" class="method-detail ">
+          <a name="method-i-subscribe"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">subscribe</span><span
+              class="method-args">(destination, headers = {})</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p>Subscribe to a destination, must be passed a block which will be used as a
+callback listener. Accepts a transaction header ( :transaction =&gt;
+'some_transaction_id' ).</p>
+            
+
+            
+            <div class="method-source-code" id="subscribe-source">
+<pre>
+<span class="ruby-comment"># File lib/stomp/client.rb, line 148</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">subscribe</span>(<span class="ruby-identifier">destination</span>, <span class="ruby-identifier">headers</span> = {})
+  <span class="ruby-identifier">raise</span> <span class="ruby-string">&quot;No listener given&quot;</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">block_given?</span>
+  <span class="ruby-comment"># use subscription id to correlate messages to subscription. As described in</span>
+  <span class="ruby-comment"># the SUBSCRIPTION section of the protocol: http://stomp.github.com/.</span>
+  <span class="ruby-comment"># If no subscription id is provided, generate one.</span>
+  <span class="ruby-identifier">set_subscription_id_if_missing</span>(<span class="ruby-identifier">destination</span>, <span class="ruby-identifier">headers</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@listeners</span>[<span class="ruby-identifier">headers</span>[<span class="ruby-value">:id</span>]]
+    <span class="ruby-identifier">raise</span> <span class="ruby-string">&quot;attempting to subscribe to a queue with a previous subscription&quot;</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-ivar">@listeners</span>[<span class="ruby-identifier">headers</span>[<span class="ruby-value">:id</span>]] = <span class="ruby-identifier">lambda</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">msg</span><span class="ruby-operator">|</span> <span class="ruby-keyword">yield</span> <span class="ruby-identifier">msg</span>}
+  <span class="ruby-ivar">@connection</span>.<span class="ruby-identifier">subscribe</span>(<span class="ruby-identifier">destination</span>, <span class="ruby-identifier">headers</span>)
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- subscribe-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- subscribe-method -->
+
+      
+        <div id="unreceive-method" class="method-detail ">
+          <a name="method-i-unreceive"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">unreceive</span><span
+              class="method-args">(message, options = {})</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p>Unreceive a message, sending it back to its queue or to the DLQ.</p>
+            
+
+            
+            <div class="method-source-code" id="unreceive-source">
+<pre>
+<span class="ruby-comment"># File lib/stomp/client.rb, line 198</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">unreceive</span>(<span class="ruby-identifier">message</span>, <span class="ruby-identifier">options</span> = {})
+  <span class="ruby-ivar">@connection</span>.<span class="ruby-identifier">unreceive</span>(<span class="ruby-identifier">message</span>, <span class="ruby-identifier">options</span>)
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- unreceive-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- unreceive-method -->
+
+      
+        <div id="unsubscribe-method" class="method-detail ">
+          <a name="method-i-unsubscribe"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">unsubscribe</span><span
+              class="method-args">(name, headers = {})</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p>Unsubscribe from a subscription by name.</p>
+            
+
+            
+            <div class="method-source-code" id="unsubscribe-source">
+<pre>
+<span class="ruby-comment"># File lib/stomp/client.rb, line 162</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">unsubscribe</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">headers</span> = {})
+  <span class="ruby-identifier">set_subscription_id_if_missing</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">headers</span>)
+  <span class="ruby-ivar">@connection</span>.<span class="ruby-identifier">unsubscribe</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">headers</span>)
+  <span class="ruby-ivar">@listeners</span>[<span class="ruby-identifier">headers</span>[<span class="ruby-value">:id</span>]] = <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- unsubscribe-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- unsubscribe-method -->
+
+      
+        <div id="uuid-method" class="method-detail ">
+          <a name="method-i-uuid"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">uuid</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p>uuid returns a type 4 UUID.</p>
+            
+
+            
+            <div class="method-source-code" id="uuid-source">
+<pre>
+<span class="ruby-comment"># File lib/stomp/client.rb, line 266</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">uuid</span>()
+  <span class="ruby-ivar">@connection</span>.<span class="ruby-identifier">uuid</span>()
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- uuid-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- uuid-method -->
+
+      
+        <div id="valid_utf8-3F-method" class="method-detail ">
+          <a name="method-i-valid_utf8-3F"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">valid_utf8?</span><span
+              class="method-args">(s)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p>valid_utf8? validates any given string for UTF8 compliance.</p>
+            
+
+            
+            <div class="method-source-code" id="valid_utf8-3F-source">
+<pre>
+<span class="ruby-comment"># File lib/stomp/client.rb, line 256</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">valid_utf8?</span>(<span class="ruby-identifier">s</span>)
+  <span class="ruby-ivar">@connection</span>.<span class="ruby-identifier">valid_utf8?</span>(<span class="ruby-identifier">s</span>)
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- valid_utf8-3F-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- valid_utf8-3F-method -->
+
+      
+      </div><!-- public-instance-method-details -->
+    
+    </div><!-- 5Buntitled-5D -->
+  
+
+  </div><!-- documentation -->
+
+  <div id="validator-badges">
+    <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+    <p><small>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish
+      Rdoc Generator</a> 2</small>.</p>
+  </div>
+
+</body>
+</html>
+

@@ -1,0 +1,2 @@
+U:RDoc::Attr[iI"autoflush:EFI" Stomp::Connection#autoflush;FI"RW;F:publico:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[I"DAutoflush forces a flush on each transmit.  This may be changed:encoding"IBM437I"!dynamically by calling code.;@:
+@file0FI"lib/stomp/connection.rb;@

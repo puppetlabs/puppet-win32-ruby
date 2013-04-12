@@ -1,0 +1,2 @@
+U:RDoc::Attr[iI"ts_files:EFI"Stomp::SSLParams#ts_files;FI"RW;F:publico:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[I"JThe trust store files. Normally the certificate of the CA that signed:encoding"IBM437I"Jthe server's certificate. One file name, or a CSV list of file names.;@:
+@file0FI"lib/stomp/sslparams.rb;@

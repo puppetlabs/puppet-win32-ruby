@@ -1,0 +1,2 @@
+U:RDoc::Attr[iI"	port:EFI"Stomp::Client#port;FI"R;F:publico:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[I"%The Stomp host's listening port.:encoding"IBM437:
+@file0FI"lib/stomp/client.rb;@

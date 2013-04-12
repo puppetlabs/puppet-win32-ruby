@@ -1,0 +1,575 @@
+<?xml version="1.0" encoding="IBM437"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta content="text/html; charset=IBM437" http-equiv="Content-Type" />
+
+  <title>Class: TestSSL</title>
+
+  <link rel="stylesheet" href="./rdoc.css" type="text/css" media="screen" />
+
+  <script src="./js/jquery.js" type="text/javascript" charset="utf-8"></script>
+  <script src="./js/thickbox-compressed.js" type="text/javascript" charset="utf-8"></script>
+  <script src="./js/quicksearch.js" type="text/javascript" charset="utf-8"></script>
+  <script src="./js/darkfish.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+<body id="top" class="class">
+
+  <div id="metadata">
+    <div id="home-metadata">
+      <div id="home-section" class="section">
+        <h3 class="section-header">
+          <a href="./index.html">Home</a>
+          <a href="./index.html#classes">Classes</a>
+          <a href="./index.html#methods">Methods</a>
+        </h3>
+      </div>
+    </div>
+
+    <div id="file-metadata">
+      <div id="file-list-section" class="section">
+        <h3 class="section-header">In Files</h3>
+        <div class="section-body">
+          <ul>
+          
+            <li><a href="./test/test_ssl_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+              class="thickbox" title="test/test_ssl.rb">test/test_ssl.rb</a></li>
+          
+          </ul>
+        </div>
+      </div>
+
+      
+    </div>
+
+    <div id="class-metadata">
+      
+      <!-- Parent Class -->
+      <div id="parent-class-section" class="section">
+        <h3 class="section-header">Parent</h3>
+        
+        <p class="link">Test::Unit::TestCase</p>
+        
+      </div>
+      
+
+      
+
+      
+
+      
+      <!-- Method Quickref -->
+      <div id="method-list-section" class="section">
+        <h3 class="section-header">Methods</h3>
+        <ul class="link-list">
+          
+          <li><a href="#method-i-setup">#setup</a></li>
+          
+          <li><a href="#method-i-teardown">#teardown</a></li>
+          
+          <li><a href="#method-i-test_ssl_0000">#test_ssl_0000</a></li>
+          
+          <li><a href="#method-i-test_ssl_0010_parms">#test_ssl_0010_parms</a></li>
+          
+          <li><a href="#method-i-test_ssl_0020_noraise">#test_ssl_0020_noraise</a></li>
+          
+          <li><a href="#method-i-test_ssl_0030_raise">#test_ssl_0030_raise</a></li>
+          
+          <li><a href="#method-i-test_ssl_0040_fsck">#test_ssl_0040_fsck</a></li>
+          
+        </ul>
+      </div>
+      
+
+      
+      <!-- Included Modules -->
+      <div id="includes-section" class="section">
+        <h3 class="section-header">Included Modules</h3>
+        <ul class="link-list">
+        
+        
+          <li><a class="include" href="TestBase.html">TestBase</a></li>
+        
+        
+        </ul>
+      </div>
+      
+    </div>
+
+    <div id="project-metadata">
+      
+      
+      <div id="fileindex-section" class="section project-section">
+        <h3 class="section-header">Files</h3>
+        <ul>
+        
+          <li class="file"><a href="./CHANGELOG_rdoc.html">CHANGELOG.rdoc</a></li>
+        
+          <li class="file"><a href="./LICENSE.html">LICENSE</a></li>
+        
+          <li class="file"><a href="./README_rdoc.html">README.rdoc</a></li>
+        
+        </ul>
+      </div>
+      
+
+      <div id="classindex-section" class="section project-section">
+        <h3 class="section-header">Class/Module Index
+          <span class="search-toggle"><img src="./images/find.png"
+            height="16" width="16" alt="[+]"
+            title="show/hide quicksearch" /></span></h3>
+        <form action="#" method="get" accept-charset="utf-8" class="initially-hidden">
+        <fieldset>
+          <legend>Quicksearch</legend>
+          <input type="text" name="quicksearch" value=""
+            class="quicksearch-field" />
+        </fieldset>
+        </form>
+
+        <ul class="link-list">
+        
+          <li><a href="./Stomp.html">Stomp</a></li>
+        
+          <li><a href="./Stomp/Client.html">Stomp::Client</a></li>
+        
+          <li><a href="./Stomp/Connection.html">Stomp::Connection</a></li>
+        
+          <li><a href="./Stomp/Error.html">Stomp::Error</a></li>
+        
+          <li><a href="./Stomp/Error/DuplicateSubscription.html">Stomp::Error::DuplicateSubscription</a></li>
+        
+          <li><a href="./Stomp/Error/InvalidFormat.html">Stomp::Error::InvalidFormat</a></li>
+        
+          <li><a href="./Stomp/Error/InvalidHeartBeatHeaderError.html">Stomp::Error::InvalidHeartBeatHeaderError</a></li>
+        
+          <li><a href="./Stomp/Error/InvalidMessageLength.html">Stomp::Error::InvalidMessageLength</a></li>
+        
+          <li><a href="./Stomp/Error/InvalidServerCommand.html">Stomp::Error::InvalidServerCommand</a></li>
+        
+          <li><a href="./Stomp/Error/LoggerConnectionError.html">Stomp::Error::LoggerConnectionError</a></li>
+        
+          <li><a href="./Stomp/Error/MaxReconnectAttempts.html">Stomp::Error::MaxReconnectAttempts</a></li>
+        
+          <li><a href="./Stomp/Error/MessageIDRequiredError.html">Stomp::Error::MessageIDRequiredError</a></li>
+        
+          <li><a href="./Stomp/Error/NoCurrentConnection.html">Stomp::Error::NoCurrentConnection</a></li>
+        
+          <li><a href="./Stomp/Error/PacketParsingTimeout.html">Stomp::Error::PacketParsingTimeout</a></li>
+        
+          <li><a href="./Stomp/Error/ProtocolErrorConnect.html">Stomp::Error::ProtocolErrorConnect</a></li>
+        
+          <li><a href="./Stomp/Error/SSLClientParamsError.html">Stomp::Error::SSLClientParamsError</a></li>
+        
+          <li><a href="./Stomp/Error/SSLNoCertFileError.html">Stomp::Error::SSLNoCertFileError</a></li>
+        
+          <li><a href="./Stomp/Error/SSLNoKeyFileError.html">Stomp::Error::SSLNoKeyFileError</a></li>
+        
+          <li><a href="./Stomp/Error/SSLNoTruststoreFileError.html">Stomp::Error::SSLNoTruststoreFileError</a></li>
+        
+          <li><a href="./Stomp/Error/SSLUnreadableCertFileError.html">Stomp::Error::SSLUnreadableCertFileError</a></li>
+        
+          <li><a href="./Stomp/Error/SSLUnreadableKeyFileError.html">Stomp::Error::SSLUnreadableKeyFileError</a></li>
+        
+          <li><a href="./Stomp/Error/SSLUnreadableTruststoreFileError.html">Stomp::Error::SSLUnreadableTruststoreFileError</a></li>
+        
+          <li><a href="./Stomp/Error/SocketOpenTimeout.html">Stomp::Error::SocketOpenTimeout</a></li>
+        
+          <li><a href="./Stomp/Error/StompServerError.html">Stomp::Error::StompServerError</a></li>
+        
+          <li><a href="./Stomp/Error/SubscriptionRequiredError.html">Stomp::Error::SubscriptionRequiredError</a></li>
+        
+          <li><a href="./Stomp/Error/UTF8ValidationError.html">Stomp::Error::UTF8ValidationError</a></li>
+        
+          <li><a href="./Stomp/Error/UnsupportedProtocolError.html">Stomp::Error::UnsupportedProtocolError</a></li>
+        
+          <li><a href="./Stomp/HeaderCodec.html">Stomp::HeaderCodec</a></li>
+        
+          <li><a href="./Stomp/Message.html">Stomp::Message</a></li>
+        
+          <li><a href="./Stomp/SSLParams.html">Stomp::SSLParams</a></li>
+        
+          <li><a href="./Client11Example1.html">Client11Example1</a></li>
+        
+          <li><a href="./Client11PutGet1.html">Client11PutGet1</a></li>
+        
+          <li><a href="./Connection11Example1.html">Connection11Example1</a></li>
+        
+          <li><a href="./Connection11Example2.html">Connection11Example2</a></li>
+        
+          <li><a href="./ExampleConsumer.html">ExampleConsumer</a></li>
+        
+          <li><a href="./ExamplePublisher.html">ExamplePublisher</a></li>
+        
+          <li><a href="./ExampleRubyCiphers.html">ExampleRubyCiphers</a></li>
+        
+          <li><a href="./ExampleSSL1.html">ExampleSSL1</a></li>
+        
+          <li><a href="./ExampleSSL1C.html">ExampleSSL1C</a></li>
+        
+          <li><a href="./ExampleSSL2.html">ExampleSSL2</a></li>
+        
+          <li><a href="./ExampleSSL2C.html">ExampleSSL2C</a></li>
+        
+          <li><a href="./ExampleSSL3.html">ExampleSSL3</a></li>
+        
+          <li><a href="./ExampleSSL3C.html">ExampleSSL3C</a></li>
+        
+          <li><a href="./ExampleSSL4.html">ExampleSSL4</a></li>
+        
+          <li><a href="./ExampleSSL4C.html">ExampleSSL4C</a></li>
+        
+          <li><a href="./ExampleTopicConsumer.html">ExampleTopicConsumer</a></li>
+        
+          <li><a href="./ExampleTopicPublisher.html">ExampleTopicPublisher</a></li>
+        
+          <li><a href="./Hash.html">Hash</a></li>
+        
+          <li><a href="./HeartBeatExample1.html">HeartBeatExample1</a></li>
+        
+          <li><a href="./LoggerExample.html">LoggerExample</a></li>
+        
+          <li><a href="./Object.html">Object</a></li>
+        
+          <li><a href="./Publish11Example1.html">Publish11Example1</a></li>
+        
+          <li><a href="./Receive11Example1.html">Receive11Example1</a></li>
+        
+          <li><a href="./Receive11Example2.html">Receive11Example2</a></li>
+        
+          <li><a href="./RepeatedHeadersExample.html">RepeatedHeadersExample</a></li>
+        
+          <li><a href="./SSLLoggerExample.html">SSLLoggerExample</a></li>
+        
+          <li><a href="./Slogger.html">Slogger</a></li>
+        
+          <li><a href="./Stomp11Common.html">Stomp11Common</a></li>
+        
+          <li><a href="./TestBase.html">TestBase</a></li>
+        
+          <li><a href="./TestClient.html">TestClient</a></li>
+        
+          <li><a href="./TestCodec.html">TestCodec</a></li>
+        
+          <li><a href="./TestConnection.html">TestConnection</a></li>
+        
+          <li><a href="./TestConnection1P.html">TestConnection1P</a></li>
+        
+          <li><a href="./TestMessage.html">TestMessage</a></li>
+        
+          <li><a href="./TestSSL.html">TestSSL</a></li>
+        
+          <li><a href="./Tlogger.html">Tlogger</a></li>
+        
+        </ul>
+        <div id="no-class-search-results" style="display: none;">No matching classes.</div>
+      </div>
+
+      
+    </div>
+  </div>
+
+  <div id="documentation">
+    <h1 class="class">TestSSL</h1>
+
+    <div id="description" class="description">
+      
+<p>Main class for testing <a href="Stomp/SSLParams.html">Stomp::SSLParams</a>.</p>
+
+    </div><!-- description -->
+
+    
+    
+    
+    <div id="5Buntitled-5D" class="documentation-section">
+      
+
+      
+
+      
+
+      
+
+      <!-- Methods -->
+      
+      <div id="public-instance-method-details" class="method-section section">
+        <h3 class="section-header">Public Instance Methods</h3>
+
+      
+        <div id="setup-method" class="method-detail ">
+          <a name="method-i-setup"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">setup</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            
+            
+
+            
+            <div class="method-source-code" id="setup-source">
+<pre>
+<span class="ruby-comment"># File test/test_ssl.rb, line 17</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">setup</span>
+  <span class="ruby-ivar">@conn</span> = <span class="ruby-identifier">get_ssl_connection</span>()
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- setup-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- setup-method -->
+
+      
+        <div id="teardown-method" class="method-detail ">
+          <a name="method-i-teardown"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">teardown</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            
+            
+
+            
+            <div class="method-source-code" id="teardown-source">
+<pre>
+<span class="ruby-comment"># File test/test_ssl.rb, line 21</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">teardown</span>
+  <span class="ruby-ivar">@conn</span>.<span class="ruby-identifier">disconnect</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@conn</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@conn</span>.<span class="ruby-identifier">open?</span> <span class="ruby-comment"># allow tests to disconnect</span>
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- teardown-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- teardown-method -->
+
+      
+        <div id="test_ssl_0000-method" class="method-detail ">
+          <a name="method-i-test_ssl_0000"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">test_ssl_0000</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            
+            
+
+            
+            <div class="method-source-code" id="test_ssl_0000-source">
+<pre>
+<span class="ruby-comment"># File test/test_ssl.rb, line 25</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_ssl_0000</span>
+  <span class="ruby-identifier">assert</span> <span class="ruby-ivar">@conn</span>.<span class="ruby-identifier">open?</span>
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- test_ssl_0000-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- test_ssl_0000-method -->
+
+      
+        <div id="test_ssl_0010_parms-method" class="method-detail ">
+          <a name="method-i-test_ssl_0010_parms"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">test_ssl_0010_parms</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p>Test SSLParams basic.</p>
+            
+
+            
+            <div class="method-source-code" id="test_ssl_0010_parms-source">
+<pre>
+<span class="ruby-comment"># File test/test_ssl.rb, line 30</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_ssl_0010_parms</span>
+  <span class="ruby-identifier">ssl_params</span> = <span class="ruby-constant">Stomp</span><span class="ruby-operator">::</span><span class="ruby-constant">SSLParams</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-identifier">assert</span> <span class="ruby-identifier">ssl_params</span>.<span class="ruby-identifier">ts_files</span>.<span class="ruby-identifier">nil?</span>
+  <span class="ruby-identifier">assert</span> <span class="ruby-identifier">ssl_params</span>.<span class="ruby-identifier">cert_file</span>.<span class="ruby-identifier">nil?</span>
+  <span class="ruby-identifier">assert</span> <span class="ruby-identifier">ssl_params</span>.<span class="ruby-identifier">key_file</span>.<span class="ruby-identifier">nil?</span>
+  <span class="ruby-identifier">assert</span> <span class="ruby-identifier">ssl_params</span>.<span class="ruby-identifier">fsck</span>.<span class="ruby-identifier">nil?</span>
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- test_ssl_0010_parms-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- test_ssl_0010_parms-method -->
+
+      
+        <div id="test_ssl_0020_noraise-method" class="method-detail ">
+          <a name="method-i-test_ssl_0020_noraise"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">test_ssl_0020_noraise</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p>Test using correct parameters.</p>
+            
+
+            
+            <div class="method-source-code" id="test_ssl_0020_noraise-source">
+<pre>
+<span class="ruby-comment"># File test/test_ssl.rb, line 39</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_ssl_0020_noraise</span>
+  <span class="ruby-identifier">assert_nothing_raised</span> {
+    <span class="ruby-identifier">ssl_parms</span> = <span class="ruby-constant">Stomp</span><span class="ruby-operator">::</span><span class="ruby-constant">SSLParams</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">:cert_file</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;dummy1&quot;</span>, <span class="ruby-value">:key_file</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;dummy2&quot;</span>)
+  }
+  <span class="ruby-identifier">assert_nothing_raised</span> {
+    <span class="ruby-identifier">ssl_parms</span> = <span class="ruby-constant">Stomp</span><span class="ruby-operator">::</span><span class="ruby-constant">SSLParams</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">:ts_files</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;dummyts1&quot;</span>)
+  }
+  <span class="ruby-identifier">assert_nothing_raised</span> {
+    <span class="ruby-identifier">ssl_parms</span> = <span class="ruby-constant">Stomp</span><span class="ruby-operator">::</span><span class="ruby-constant">SSLParams</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">:ts_files</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;dummyts1&quot;</span>, 
+      <span class="ruby-value">:cert_file</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;dummy1&quot;</span>, <span class="ruby-value">:key_file</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;dummy2&quot;</span>)
+  }
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- test_ssl_0020_noraise-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- test_ssl_0020_noraise-method -->
+
+      
+        <div id="test_ssl_0030_raise-method" class="method-detail ">
+          <a name="method-i-test_ssl_0030_raise"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">test_ssl_0030_raise</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p>Test using incorrect / incomplete parameters.</p>
+            
+
+            
+            <div class="method-source-code" id="test_ssl_0030_raise-source">
+<pre>
+<span class="ruby-comment"># File test/test_ssl.rb, line 53</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_ssl_0030_raise</span>
+  <span class="ruby-identifier">assert_raise</span>(<span class="ruby-constant">Stomp</span><span class="ruby-operator">::</span><span class="ruby-constant">Error</span><span class="ruby-operator">::</span><span class="ruby-constant">SSLClientParamsError</span>) {
+    <span class="ruby-identifier">ssl_parms</span> = <span class="ruby-constant">Stomp</span><span class="ruby-operator">::</span><span class="ruby-constant">SSLParams</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">:cert_file</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;dummy1&quot;</span>)
+  }
+  <span class="ruby-identifier">assert_raise</span>(<span class="ruby-constant">Stomp</span><span class="ruby-operator">::</span><span class="ruby-constant">Error</span><span class="ruby-operator">::</span><span class="ruby-constant">SSLClientParamsError</span>) {
+    <span class="ruby-identifier">ssl_parms</span> = <span class="ruby-constant">Stomp</span><span class="ruby-operator">::</span><span class="ruby-constant">SSLParams</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">:key_file</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;dummy2&quot;</span>)
+  }
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- test_ssl_0030_raise-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- test_ssl_0030_raise-method -->
+
+      
+        <div id="test_ssl_0040_fsck-method" class="method-detail ">
+          <a name="method-i-test_ssl_0040_fsck"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">test_ssl_0040_fsck</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p>Test that :fsck works.</p>
+            
+
+            
+            <div class="method-source-code" id="test_ssl_0040_fsck-source">
+<pre>
+<span class="ruby-comment"># File test/test_ssl.rb, line 63</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_ssl_0040_fsck</span>
+  <span class="ruby-identifier">assert_raise</span>(<span class="ruby-constant">Stomp</span><span class="ruby-operator">::</span><span class="ruby-constant">Error</span><span class="ruby-operator">::</span><span class="ruby-constant">SSLNoCertFileError</span>) {
+    <span class="ruby-identifier">ssl_parms</span> = <span class="ruby-constant">Stomp</span><span class="ruby-operator">::</span><span class="ruby-constant">SSLParams</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">:cert_file</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;dummy1&quot;</span>, 
+      <span class="ruby-value">:key_file</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;dummy2&quot;</span>, <span class="ruby-value">:fsck</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>)
+  }
+  <span class="ruby-identifier">assert_raise</span>(<span class="ruby-constant">Stomp</span><span class="ruby-operator">::</span><span class="ruby-constant">Error</span><span class="ruby-operator">::</span><span class="ruby-constant">SSLNoKeyFileError</span>) {
+    <span class="ruby-identifier">ssl_parms</span> = <span class="ruby-constant">Stomp</span><span class="ruby-operator">::</span><span class="ruby-constant">SSLParams</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">:cert_file</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">__FILE__</span>,
+      <span class="ruby-value">:key_file</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;dummy2&quot;</span>, <span class="ruby-value">:fsck</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>)
+  }
+  <span class="ruby-identifier">assert_raise</span>(<span class="ruby-constant">Stomp</span><span class="ruby-operator">::</span><span class="ruby-constant">Error</span><span class="ruby-operator">::</span><span class="ruby-constant">SSLNoTruststoreFileError</span>) {
+    <span class="ruby-identifier">ssl_parms</span> = <span class="ruby-constant">Stomp</span><span class="ruby-operator">::</span><span class="ruby-constant">SSLParams</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">:ts_files</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;/tmp/not-likely-here.txt&quot;</span>, 
+      <span class="ruby-value">:fsck</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>)
+  }
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- test_ssl_0040_fsck-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- test_ssl_0040_fsck-method -->
+
+      
+      </div><!-- public-instance-method-details -->
+    
+    </div><!-- 5Buntitled-5D -->
+  
+
+  </div><!-- documentation -->
+
+  <div id="validator-badges">
+    <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+    <p><small>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish
+      Rdoc Generator</a> 2</small>.</p>
+  </div>
+
+</body>
+</html>
+

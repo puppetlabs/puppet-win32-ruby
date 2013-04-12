@@ -1,0 +1,2 @@
+U:RDoc::Attr[iI"peer_cert:EFI"Stomp::SSLParams#peer_cert;FI"RW;F:publico:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[I"IThe certificate of the connection peer (the server), received during:encoding"IBM437I"the handshake.;@:
+@file0FI"lib/stomp/sslparams.rb;@

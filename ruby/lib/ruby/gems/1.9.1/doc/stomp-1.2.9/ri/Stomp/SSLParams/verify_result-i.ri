@@ -1,0 +1,2 @@
+U:RDoc::Attr[iI"verify_result:EFI"#Stomp::SSLParams#verify_result;FI"RW;F:publico:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[I"=SSL Connect Verify Result.  The result of the handshake.:encoding"IBM437:
+@file0FI"lib/stomp/sslparams.rb;@
