@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta content="text/html; charset=IBM437" http-equiv="Content-Type" />
+
+  <title>File: History.txt [win32console-1.3.2-x86-mingw32 Documentation]</title>
+
+  <link type="text/css" media="screen" href="./rdoc.css" rel="stylesheet" />
+
+  <script src="./js/jquery.js" type="text/javascript"
+    charset="utf-8"></script>
+  <script src="./js/thickbox-compressed.js" type="text/javascript"
+    charset="utf-8"></script>
+  <script src="./js/quicksearch.js" type="text/javascript"
+    charset="utf-8"></script>
+  <script src="./js/darkfish.js" type="text/javascript"
+    charset="utf-8"></script>
+</head>
+
+<body class="file">
+  <div id="metadata">
+    <div id="home-metadata">
+      <div id="home-section" class="section">
+        <h3 class="section-header">
+          <a href="./index.html">Home</a>
+          <a href="./index.html#classes">Classes</a>
+          <a href="./index.html#methods">Methods</a>
+        </h3>
+      </div>
+    </div>
+
+    <div id="project-metadata">
+      
+      
+      <div id="fileindex-section" class="section project-section">
+        <h3 class="section-header">Files</h3>
+        <ul>
+        
+          <li class="file"><a href="./History_txt.html">History.txt</a></li>
+        
+          <li class="file"><a href="./Manifest_txt.html">Manifest.txt</a></li>
+        
+          <li class="file"><a href="./README_txt.html">README.txt</a></li>
+        
+        </ul>
+      </div>
+      
+
+      <div id="classindex-section" class="section project-section">
+        <h3 class="section-header">Class Index
+          <span class="search-toggle"><img src="./images/find.png"
+            height="16" width="16" alt="[+]"
+            title="show/hide quicksearch" /></span></h3>
+        <form action="#" method="get" accept-charset="utf-8" class="initially-hidden">
+        <fieldset>
+          <legend>Quicksearch</legend>
+          <input type="text" name="quicksearch" value=""
+            class="quicksearch-field" />
+        </fieldset>
+        </form>
+
+        <ul class="link-list">
+        
+          <li><a href="./Win32.html">Win32</a></li>
+        
+          <li><a href="./Win32/Console.html">Win32::Console</a></li>
+        
+          <li><a href="./Win32/Console/ANSI.html">Win32::Console::ANSI</a></li>
+        
+          <li><a href="./Win32/Console/ANSI/IO.html">Win32::Console::ANSI::IO</a></li>
+        
+          <li><a href="./Win32/Console/API.html">Win32::Console::API</a></li>
+        
+          <li><a href="./Win32/Console/Constants.html">Win32::Console::Constants</a></li>
+        
+          <li><a href="./Kernel.html">Kernel</a></li>
+        
+          <li><a href="./Object.html">Object</a></li>
+        
+        </ul>
+        <div id="no-class-search-results" style="display: none;">No matching classes.</div>
+      </div>
+
+      
+    </div>
+  </div>
+
+  <div id="documentation">
+    
+<h3>1.3.2 / 2012-05-11</h3>
+<ul><li>
+<p>Bugfixes:</p>
+<ul><li>
+<p>Fix background color issue associated with redirected outputs. Closes GH-14</p>
+<dl class="rdoc-list"><dt>kbarber</dt>
+<dd></dd></dl>
+</li></ul>
+</li></ul>
+
+<h3>1.3.1 / 2012-04-15</h3>
+<ul><li>
+<p>Enhancements:</p>
+<ul><li>
+<p>Maintain Fore and background colors [kbarber &amp; vertigious]</p>
+</li></ul>
+</li></ul>
+
+<h3>1.3.0 / 2010-03-14</h3>
+<ul><li>
+<p>Enhancements</p>
+<ul><li>
+<p>Works with Ruby 1.9</p>
+</li><li>
+<p>Usage of Hoe and rake-compiler to ease releasing and extension compilation.</p>
+</li><li>
+<p>Redirect STDERR to be processed also for ANSI codes. Closes GH-4</p>
+</li><li>
+<p>Allow ECHO to be displayed [jloveces]</p>
+</li></ul>
+</li><li>
+<p>Bugfixes</p>
+<ul><li>
+<p>Properly catch coloring when using autospec in Ruby 1.9 [vertiginous]
+Closes GH-3</p>
+</li></ul>
+</li><li>
+<p>Known issues:</p>
+<ul><li>
+<p>win32console no longer automatically translate encoding to the console
+output enconding. Please use Iconv to convert from your encoding (eg. UTF8)
+to current console output:</p>
+
+<pre>current_cp = Win32::Console::OutputCP()
+Iconv.iconv(&quot;cp#{current_cp}&quot;, &quot;utf-8&quot;, utf_string)</pre>
+
+<p>A working example can be seen here: <a
+href="http://gist.github.com/265593">gist.github.com/265593</a></p>
+</li></ul>
+</li></ul>
+
+<h3>1.2.0 / 2008-11-22</h3>
+<ul><li>
+<p>Enhancements</p>
+<ul><li>
+<p>Better code organization and clenaup</p>
+</li></ul>
+</li><li>
+<p>Bugfixes:</p>
+<ul><li>
+<p>Removed license conflicting ANSI Term code and functionality.</p>
+</li></ul>
+</li></ul>
+
+<h3>1.1.0 / 2008-03-17</h3>
+<ul><li>
+<p>Enhancements:</p>
+<ul><li>
+<p>Added <a href="Kernel.html#method-i-putc">Kernel#putc</a> Redefined <a
+href="Kernel.html#method-i-putc">Kernel#putc</a> to wrap <a
+href="Win32/Console/ANSI/IO.html#method-i-putc">Win32::Console::ANSI::IO#putc</a></p>
+</li><li>
+<p>Added putc to <a
+href="Win32/Console/ANSI/IO.html">Win32::Console::ANSI::IO</a>  This putc
+buffers escape sequences so that they will be handled properly</p>
+</li><li>
+<p>Added redirected? to <a
+href="Win32/Console/ANSI/IO.html">Win32::Console::ANSI::IO</a> Checks the
+mode of the console to see if IO is being redirected or not</p>
+</li><li>
+<p>Added Win32::Console::API#WriteFile to both the Ruby and compiled versions</p>
+</li><li>
+<p>Added Win32::Console#WriteFile This is a wrapper around
+Win32::Console::API#WriteFile</p>
+</li><li>
+<p>Split <a href="Win32/Console/Constants.html">Win32::Console::Constants</a>
+and <a href="Win32/Console/API.html">Win32::Console::API</a> out into 
+seperate files. These two classes were in 'Win32/Console.rb' I moved them
+into 'Win32/Console/constants.rb' and 'Win32/Console/api.rb' respectively.</p>
+</li><li>
+<p>Cleaned up indentation indentations was a mixture of tabs and spaces. I
+made everything indented with 2 spaces.</p>
+</li></ul>
+</li><li>
+<p>Bugfixes:</p>
+<ul><li>
+<p>Fixed "Invalid Handle" error in compiled version of GetConsoleMode I'm
+actually not sure of the source of this error. It may be expected behavior
+when output is being redirected. I worked around it by rescuing the
+exception in Win32::Console#Mode and returning 9999. I picked that
+arbitrary value, because it is higher than 31, which is what I think is the
+highest value Mode would return if output isn't being redirected.</p>
+<dl class="rdoc-list"><dt>Gordon Thiesfeld</dt>
+<dd></dd></dl>
+</li><li>
+<p>Modified <a
+href="Win32/Console/ANSI/IO.html#method-i-write">Win32::Console::ANSI::IO#write</a>
+to check for redirection. If output is redirected, it uses WriteFile
+instead of WriteConosle. It also skips the parsing step, and passes the
+escape sequences through.</p>
+<dl class="rdoc-list"><dt>Gordon Thiesfeld</dt>
+<dd></dd></dl>
+</li><li>
+<p>Modified Win32::Console::ANSI::IO#_PrintString Didn't change behavior, just
+tried to make it more idiomatic ruby. I didn't make all of the changes I
+wanted to, because I wasn't sure  how to test them all.</p>
+<dl class="rdoc-list"><dt>Gordon Thiesfeld</dt>
+<dd></dd></dl>
+</li><li>
+<p>Modified all <a href="Win32/Console/API.html">Win32::Console::API</a>
+methods</p>
+<dl class="rdoc-list"><dt>Gordon Thiesfeld</dt>
+<dd>
+<p>It was assigning Win32API functions to class variables.  I switched them to
+instance variables. I also changed the idiom it was using to instantiate
+the objects. For instance, instead of:</p>
+
+<pre>if @@m_AllocConsole == nil
+@@m_AllocConsole = Win32API.new( &quot;kernel32&quot;, &quot;AllocConsole&quot;, 
+        [], 'l' )</pre>
+
+<p>It is now:</p>
+
+<pre>@AllocConsole ||= Win32API.new( &quot;kernel32&quot;, &quot;AllocConsole&quot;, [], 'l' )</pre>
+</dd></dl>
+</li><li>
+<p>Non-string arguments passed to Win32::Console::ANSI#write caused error fix
+by Ivan Evtuhovich (evtuhovich at gmail dot com).</p>
+</li></ul>
+</li></ul>
+
+<h3>1.0.8 / 2006-06-05</h3>
+<ul><li>
+<p>New features:</p>
+<ul><li>
+<p>First public release of win32console gem by Justin Bailey.</p>
+</li></ul>
+</li></ul>
+
+<h3>1.0</h3>
+<ul><li>
+<p>New features:</p>
+<ul><li>
+<p>Added .dup to _printString function to avoid mangling outside string
+references. Removed the other (later) .dup call.</p>
+</li></ul>
+</li><li>
+<p>Bugfixes:</p>
+<ul><li>
+<p>Turned of some exceptions that were conflicting with using the module with
+pipes or redirections.</p>
+</li></ul>
+</li></ul>
+
+<h3>0.8</h3>
+<ul><li>
+<p>Enhancements:</p>
+<ul><li>
+<p>Added ruby docs, and sample test suite.</p>
+</li></ul>
+</li><li>
+<p>Bugfixes:</p>
+<ul><li>
+<p>Fixed bugs in reading routines,</p>
+</li></ul>
+</li></ul>
+
+<h3>0.5</h3>
+
+<p>New features:</p>
+
+<pre>* First public release.</pre>
+
+  </div>
+
+  <div id="validator-badges">
+    <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+    <p><small>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish
+      Rdoc Generator</a> 2</small>.</p>
+  </div>
+</body>
+</html>
+

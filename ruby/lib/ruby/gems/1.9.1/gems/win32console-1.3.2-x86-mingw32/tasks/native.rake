@@ -1,8 +1,6 @@
 # use rake-compiler for building the extension
 require 'rake/extensiontask'
 
-file '.gemtest'
-
 Rake::ExtensionTask.new('Console_ext', HOE.spec) do |ext|
   # FIXME: enable cross compilation to build fat binaries
   unless RUBY_PLATFORM =~ /mingw|mswin/ then

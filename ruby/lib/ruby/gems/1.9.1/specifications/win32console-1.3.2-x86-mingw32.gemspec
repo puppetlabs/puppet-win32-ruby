@@ -17,7 +17,7 @@ Gem::Specification.new do |s|
   s.require_paths = ["lib"]
   s.required_ruby_version = Gem::Requirement.new(">= 1.8.6")
   s.rubyforge_project = "winconsole"
-  s.rubygems_version = "1.8.16"
+  s.rubygems_version = "1.8.24"
   s.summary = "Win32::Console allows controling the windows command line terminal thru an OO-interface"
 
   if s.respond_to? :specification_version then
