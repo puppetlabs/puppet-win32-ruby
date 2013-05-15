@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="IBM437"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta content="text/html; charset=IBM437" http-equiv="Content-Type" />
+
+  <title>Module: DeepMerge::DeepMergeHash</title>
+
+  <link rel="stylesheet" href="../rdoc.css" type="text/css" media="screen" />
+
+  <script src="../js/jquery.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../js/thickbox-compressed.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../js/quicksearch.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../js/darkfish.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+<body id="top" class="module">
+
+  <div id="metadata">
+    <div id="home-metadata">
+      <div id="home-section" class="section">
+        <h3 class="section-header">
+          <a href="../index.html">Home</a>
+          <a href="../index.html#classes">Classes</a>
+          <a href="../index.html#methods">Methods</a>
+        </h3>
+      </div>
+    </div>
+
+    <div id="file-metadata">
+      <div id="file-list-section" class="section">
+        <h3 class="section-header">In Files</h3>
+        <div class="section-body">
+          <ul>
+          
+            <li><a href="../lib/deep_merge/deep_merge_hash_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+              class="thickbox" title="lib/deep_merge/deep_merge_hash.rb">lib/deep_merge/deep_merge_hash.rb</a></li>
+          
+          </ul>
+        </div>
+      </div>
+
+      
+    </div>
+
+    <div id="class-metadata">
+      
+
+      
+
+      
+
+      
+      <!-- Method Quickref -->
+      <div id="method-list-section" class="section">
+        <h3 class="section-header">Methods</h3>
+        <ul class="link-list">
+          
+          <li><a href="#method-i-deep_merge">#deep_merge</a></li>
+          
+          <li><a href="#method-i-deep_merge-21">#deep_merge!</a></li>
+          
+          <li><a href="#method-i-ko_deep_merge-21">#ko_deep_merge!</a></li>
+          
+        </ul>
+      </div>
+      
+
+      
+    </div>
+
+    <div id="project-metadata">
+      
+      
+      <div id="fileindex-section" class="section project-section">
+        <h3 class="section-header">Files</h3>
+        <ul>
+        
+          <li class="file"><a href="../README.html">README</a></li>
+        
+        </ul>
+      </div>
+      
+
+      <div id="classindex-section" class="section project-section">
+        <h3 class="section-header">Class/Module Index
+          <span class="search-toggle"><img src="../images/find.png"
+            height="16" width="16" alt="[+]"
+            title="show/hide quicksearch" /></span></h3>
+        <form action="#" method="get" accept-charset="utf-8" class="initially-hidden">
+        <fieldset>
+          <legend>Quicksearch</legend>
+          <input type="text" name="quicksearch" value=""
+            class="quicksearch-field" />
+        </fieldset>
+        </form>
+
+        <ul class="link-list">
+        
+          <li><a href="../DeepMerge.html">DeepMerge</a></li>
+        
+          <li><a href="../DeepMerge/DeepMergeHash.html">DeepMerge::DeepMergeHash</a></li>
+        
+          <li><a href="../DeepMerge/InvalidParameter.html">DeepMerge::InvalidParameter</a></li>
+        
+          <li><a href="../DeepMerge/RailsCompat.html">DeepMerge::RailsCompat</a></li>
+        
+          <li><a href="../Hash.html">Hash</a></li>
+        
+        </ul>
+        <div id="no-class-search-results" style="display: none;">No matching classes.</div>
+      </div>
+
+      
+    </div>
+  </div>
+
+  <div id="documentation">
+    <h1 class="module">DeepMerge::DeepMergeHash</h1>
+
+    <div id="description" class="description">
+      
+    </div><!-- description -->
+
+    
+    
+    
+    <div id="5Buntitled-5D" class="documentation-section">
+      
+
+      
+
+      
+
+      
+
+      <!-- Methods -->
+      
+      <div id="public-instance-method-details" class="method-section section">
+        <h3 class="section-header">Public Instance Methods</h3>
+
+      
+        <div id="deep_merge-method" class="method-detail ">
+          <a name="method-i-deep_merge"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">deep_merge</span><span
+              class="method-args">(source, options = {})</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p><a href="DeepMergeHash.html#method-i-deep_merge">deep_merge</a> will merge
+and skip any unmergeables in destination hash</p>
+            
+
+            
+            <div class="method-source-code" id="deep_merge-source">
+<pre>
+<span class="ruby-comment"># File lib/deep_merge/deep_merge_hash.rb, line 18</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">deep_merge</span>(<span class="ruby-identifier">source</span>, <span class="ruby-identifier">options</span> = {})
+  <span class="ruby-identifier">default_opts</span> = {<span class="ruby-value">:preserve_unmergeables</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>}
+  <span class="ruby-constant">DeepMerge</span><span class="ruby-operator">::</span><span class="ruby-identifier">deep_merge!</span>(<span class="ruby-identifier">source</span>, <span class="ruby-keyword">self</span>, <span class="ruby-identifier">default_opts</span>.<span class="ruby-identifier">merge</span>(<span class="ruby-identifier">options</span>))
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- deep_merge-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- deep_merge-method -->
+
+      
+        <div id="deep_merge-21-method" class="method-detail ">
+          <a name="method-i-deep_merge-21"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">deep_merge!</span><span
+              class="method-args">(source, options = {})</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p><a href="DeepMergeHash.html#method-i-deep_merge">deep_merge</a>! will merge
+and overwrite any unmergeables in destination hash</p>
+            
+
+            
+            <div class="method-source-code" id="deep_merge-21-source">
+<pre>
+<span class="ruby-comment"># File lib/deep_merge/deep_merge_hash.rb, line 12</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">deep_merge!</span>(<span class="ruby-identifier">source</span>, <span class="ruby-identifier">options</span> = {})
+  <span class="ruby-identifier">default_opts</span> = {<span class="ruby-value">:preserve_unmergeables</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">false</span>}
+  <span class="ruby-constant">DeepMerge</span><span class="ruby-operator">::</span><span class="ruby-identifier">deep_merge!</span>(<span class="ruby-identifier">source</span>, <span class="ruby-keyword">self</span>, <span class="ruby-identifier">default_opts</span>.<span class="ruby-identifier">merge</span>(<span class="ruby-identifier">options</span>))
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- deep_merge-21-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- deep_merge-21-method -->
+
+      
+        <div id="ko_deep_merge-21-method" class="method-detail ">
+          <a name="method-i-ko_deep_merge-21"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">ko_deep_merge!</span><span
+              class="method-args">(source, options = {})</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p>ko_hash_merge! will merge and knockout elements prefixed with
+DEFAULT_FIELD_KNOCKOUT_PREFIX</p>
+            
+
+            
+            <div class="method-source-code" id="ko_deep_merge-21-source">
+<pre>
+<span class="ruby-comment"># File lib/deep_merge/deep_merge_hash.rb, line 6</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">ko_deep_merge!</span>(<span class="ruby-identifier">source</span>, <span class="ruby-identifier">options</span> = {})
+  <span class="ruby-identifier">default_opts</span> = {<span class="ruby-value">:knockout_prefix</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;--&quot;</span>, <span class="ruby-value">:preserve_unmergeables</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">false</span>}
+  <span class="ruby-constant">DeepMerge</span><span class="ruby-operator">::</span><span class="ruby-identifier">deep_merge!</span>(<span class="ruby-identifier">source</span>, <span class="ruby-keyword">self</span>, <span class="ruby-identifier">default_opts</span>.<span class="ruby-identifier">merge</span>(<span class="ruby-identifier">options</span>))
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- ko_deep_merge-21-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- ko_deep_merge-21-method -->
+
+      
+      </div><!-- public-instance-method-details -->
+    
+    </div><!-- 5Buntitled-5D -->
+  
+
+  </div><!-- documentation -->
+
+  <div id="validator-badges">
+    <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+    <p><small>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish
+      Rdoc Generator</a> 2</small>.</p>
+  </div>
+
+</body>
+</html>
+
