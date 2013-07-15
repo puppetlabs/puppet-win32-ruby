@@ -10,7 +10,7 @@ module Config
   DESTDIR = TOPDIR && TOPDIR[/\A[a-z]:/i] || '' unless defined? DESTDIR
   CONFIG = {}
   CONFIG["DESTDIR"] = DESTDIR
-  CONFIG["PATCHLEVEL"] = "371"
+  CONFIG["PATCHLEVEL"] = "374"
   CONFIG["INSTALL"] = '/usr/bin/install -c'
   CONFIG["EXEEXT"] = ".exe"
   CONFIG["prefix"] = (TOPDIR || DESTDIR + "")
