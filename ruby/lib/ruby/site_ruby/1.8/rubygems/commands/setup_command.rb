@@ -187,14 +187,14 @@ By default, this RubyGems will install gem as:
           bin_cmd_file = File.join Dir.tmpdir, "#{bin_file}.bat"
 
           File.open bin_cmd_file, 'w' do |file|
-            file.puts <<-TEXT
+            file.puts <<-SCRIPT
 @ECHO OFF
 IF NOT "%~f0" == "~f0" GOTO :WinNT
-@"#{File.basename(Gem.ruby).chomp('"')}" "#{dest_file}" %1 %2 %3 %4 %5 %6 %7 %8 %9
+ECHO.This version of Ruby has not been built with support for Windows 95/98/Me.
 GOTO :EOF
 :WinNT
-@"#{File.basename(Gem.ruby).chomp('"')}" "%~dpn0" %*
-TEXT
+@"%~dp0ruby.exe" "%~dpn0" %*
+SCRIPT
           end
 
           install bin_cmd_file, "#{dest_file}.bat", :mode => 0755

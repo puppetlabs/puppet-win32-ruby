@@ -225,13 +225,22 @@ class Gem::SpecFetcher
     cache = @caches[type]
 
     Gem.sources.each do |source_uri|
+
       source_uri = URI.parse source_uri
 
-      unless cache.include? source_uri
-        cache[source_uri] = load_specs source_uri, file
-      end
+      begin
+        unless cache.include? source_uri
+          cache[source_uri] = load_specs source_uri, file
+        end
 
-      list[source_uri] = cache[source_uri]
+        list[source_uri] = cache[source_uri]
+
+      rescue Gem::RemoteFetcher::FetchError => e
+        msg = "Unable to pull data from '#{source_uri}': #{e.message}"
+        alert_warning msg
+
+        list[source_uri] = [] # if we can't download them, there aren't any
+      end
     end
 
     if type == :all

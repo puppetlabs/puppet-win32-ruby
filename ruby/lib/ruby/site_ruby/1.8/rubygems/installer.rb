@@ -485,14 +485,14 @@ TEXT
 
   def windows_stub_script(bindir, bin_file_name)
     ruby = File.basename(Gem.ruby).chomp('"')
-    return <<-TEXT
+    return <<-SCRIPT
 @ECHO OFF
 IF NOT "%~f0" == "~f0" GOTO :WinNT
-@"#{ruby}" "#{File.join(bindir, bin_file_name)}" %1 %2 %3 %4 %5 %6 %7 %8 %9
+ECHO.This version of Ruby has not been built with support for Windows 95/98/Me.
 GOTO :EOF
 :WinNT
-@"#{ruby}" "%~dpn0" %*
-TEXT
+@"%~dp0ruby.exe" "%~dpn0" %*
+SCRIPT
 
   end
 
