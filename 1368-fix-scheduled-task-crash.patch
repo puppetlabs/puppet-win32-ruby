@@ -1,0 +1,131 @@
+diff --git a/ruby/lib/ruby/gems/1.9.1/gems/win32-api-1.4.8-x86-mingw32/ext/win32/api.c b/ruby/lib/ruby/gems/1.9.1/gems/win32-api-1.4.8-x86-mingw32/ext/win32/api.c
+index 4e81d64..9aa4442 100644
+--- a/ruby/lib/ruby/gems/1.9.1/gems/win32-api-1.4.8-x86-mingw32/ext/win32/api.c
++++ b/ruby/lib/ruby/gems/1.9.1/gems/win32-api-1.4.8-x86-mingw32/ext/win32/api.c
+@@ -46,6 +46,7 @@ static void api_free(Win32API* ptr){
+ 
+ static VALUE api_allocate(VALUE klass){
+    Win32API* ptr = malloc(sizeof(Win32API));
++   memset(ptr, 0, sizeof(*ptr));
+    return Data_Wrap_Struct(klass, 0, api_free, ptr);
+ }
+ 
+diff --git a/ruby/lib/ruby/gems/1.9.1/gems/win32-taskscheduler-0.2.2/lib/win32/taskscheduler.rb b/ruby/lib/ruby/gems/1.9.1/gems/win32-taskscheduler-0.2.2/lib/win32/taskscheduler.rb
+index 1a8d2b7..10e3c62 100755
+--- a/ruby/lib/ruby/gems/1.9.1/gems/win32-taskscheduler-0.2.2/lib/win32/taskscheduler.rb
++++ b/ruby/lib/ruby/gems/1.9.1/gems/win32-taskscheduler-0.2.2/lib/win32/taskscheduler.rb
+@@ -239,10 +239,7 @@ module Win32
+         memcpy(names, pnames.unpack('L').first, 4 * tasks)
+ 
+         for i in 0 ... tasks
+-          str = 0.chr * 256
+-          wcscpy(str, names[i*4, 4].unpack('L').first)
+-          array.push(wide_to_multi(str))
+-          CoTaskMemFree(names[i*4, 4].unpack('L').first)
++          array.push(ptr_to_string(names[i*4, 4]))
+         end
+ 
+         CoTaskMemFree(pnames.unpack('L').first)
+@@ -529,12 +526,9 @@ module Win32
+       if hr == 0x8004130F # SCHED_E_ACCOUNT_INFORMATION_NOT_SET
+         user = nil
+       elsif hr >= 0 && hr != 0x80041312 # SCHED_E_NO_SECURITY_SERVICES
+-        str = 0.chr * 256
+-        wcscpy(str, ptr.unpack('L').first)
+-        CoTaskMemFree(ptr.unpack('L').first)
+-        user = wide_to_multi(str)
++        user = ptr_to_string(ptr)
+       else
+-        CoTaskMemFree(p.unpack('L').first)
++        CoTaskMemFree(ptr.unpack('L').first)
+         raise Error,get_last_error(hr)
+       end
+ 
+@@ -560,10 +554,7 @@ module Win32
+       hr  = getApplicationName.call(@pITask, ptr)
+ 
+       if hr >= S_OK
+-        str = 0.chr * 256
+-        wcscpy(str, ptr.unpack('L').first)
+-        app = wide_to_multi(str)
+-        CoTaskMemFree(ptr.unpack('L').first)
++        app = ptr_to_string(ptr)
+       else
+         raise Error, get_last_error
+       end
+@@ -614,10 +605,7 @@ module Win32
+       hr = getParameters.call(@pITask, ptr)
+ 
+       if hr >= S_OK
+-        str = 0.chr * 256
+-        wcscpy(str, ptr.unpack('L').first)
+-        param = wide_to_multi(str)
+-        CoTaskMemFree(ptr.unpack('L').first)
++        param = ptr_to_string(ptr)
+       else
+         raise Error, get_last_error
+       end
+@@ -672,10 +660,7 @@ module Win32
+       hr  = getWorkingDirectory.call(@pITask, ptr)
+ 
+       if hr >= S_OK
+-        str = 0.chr * 256
+-        wcscpy(str, ptr.unpack('L').first)
+-        dir = wide_to_multi(str)
+-        CoTaskMemFree(ptr.unpack('L').first)
++        dir = ptr_to_string(ptr)
+       else
+         raise Error, get_last_error
+       end
+@@ -970,10 +955,7 @@ module Win32
+       hr  = getTriggerString.call(@pITask, index, ptr)
+ 
+       if hr == S_OK
+-        str = 0.chr * 256
+-        wcscpy(str, ptr.unpack('L').first)
+-        trigger = wide_to_multi(str)
+-        CoTaskMemFree(ptr.unpack('L').first)
++        trigger = ptr_to_string(ptr)
+       else
+         raise Error, get_last_error
+       end
+@@ -1420,10 +1402,7 @@ module Win32
+         raise Error,get_last_error
+       end
+ 
+-      str = 0.chr * 256
+-      wcscpy(str, ptr.unpack('L').first)
+-      CoTaskMemFree(ptr.unpack('L').first)
+-      wide_to_multi(str)
++      ptr_to_string(ptr)
+     end
+ 
+     # Sets the comment for the task.
+@@ -1472,10 +1451,7 @@ module Win32
+         raise Error, get_last_error
+       end
+ 
+-      str = 0.chr * 256
+-      wcscpy(str, ptr.unpack('L').first)
+-      CoTaskMemFree(ptr.unpack('L').first)
+-      wide_to_multi(str)
++      ptr_to_string(ptr)
+     end
+ 
+     # Sets the creator for the task.
+@@ -1655,6 +1631,15 @@ module Win32
+        'weeks'
+     ]
+ 
++    def ptr_to_string(ptr)
++      value = ptr.unpack('L').first
++      length = wcslen(value)
++      buffer = 0.chr * (2 * (length + 1))
++      wcsncpy(buffer, value, length)
++      CoTaskMemFree(value)
++      wide_to_multi(buffer)
++    end
++
+     # Private method that validates keys, and converts all keys to lowercase
+     # strings.
+     #

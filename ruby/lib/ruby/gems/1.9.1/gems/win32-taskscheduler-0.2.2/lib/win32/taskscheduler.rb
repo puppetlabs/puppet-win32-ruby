@@ -239,10 +239,7 @@ module Win32
         memcpy(names, pnames.unpack('L').first, 4 * tasks)
 
         for i in 0 ... tasks
-          str = 0.chr * 256
-          wcscpy(str, names[i*4, 4].unpack('L').first)
-          array.push(wide_to_multi(str))
-          CoTaskMemFree(names[i*4, 4].unpack('L').first)
+          array.push(ptr_to_string(names[i*4, 4]))
         end
 
         CoTaskMemFree(pnames.unpack('L').first)
@@ -529,12 +526,9 @@ module Win32
       if hr == 0x8004130F # SCHED_E_ACCOUNT_INFORMATION_NOT_SET
         user = nil
       elsif hr >= 0 && hr != 0x80041312 # SCHED_E_NO_SECURITY_SERVICES
-        str = 0.chr * 256
-        wcscpy(str, ptr.unpack('L').first)
-        CoTaskMemFree(ptr.unpack('L').first)
-        user = wide_to_multi(str)
+        user = ptr_to_string(ptr)
       else
-        CoTaskMemFree(p.unpack('L').first)
+        CoTaskMemFree(ptr.unpack('L').first)
         raise Error,get_last_error(hr)
       end
 
@@ -560,10 +554,7 @@ module Win32
       hr  = getApplicationName.call(@pITask, ptr)
 
       if hr >= S_OK
-        str = 0.chr * 256
-        wcscpy(str, ptr.unpack('L').first)
-        app = wide_to_multi(str)
-        CoTaskMemFree(ptr.unpack('L').first)
+        app = ptr_to_string(ptr)
       else
         raise Error, get_last_error
       end
@@ -614,10 +605,7 @@ module Win32
       hr = getParameters.call(@pITask, ptr)
 
       if hr >= S_OK
-        str = 0.chr * 256
-        wcscpy(str, ptr.unpack('L').first)
-        param = wide_to_multi(str)
-        CoTaskMemFree(ptr.unpack('L').first)
+        param = ptr_to_string(ptr)
       else
         raise Error, get_last_error
       end
@@ -672,10 +660,7 @@ module Win32
       hr  = getWorkingDirectory.call(@pITask, ptr)
 
       if hr >= S_OK
-        str = 0.chr * 256
-        wcscpy(str, ptr.unpack('L').first)
-        dir = wide_to_multi(str)
-        CoTaskMemFree(ptr.unpack('L').first)
+        dir = ptr_to_string(ptr)
       else
         raise Error, get_last_error
       end
@@ -970,10 +955,7 @@ module Win32
       hr  = getTriggerString.call(@pITask, index, ptr)
 
       if hr == S_OK
-        str = 0.chr * 256
-        wcscpy(str, ptr.unpack('L').first)
-        trigger = wide_to_multi(str)
-        CoTaskMemFree(ptr.unpack('L').first)
+        trigger = ptr_to_string(ptr)
       else
         raise Error, get_last_error
       end
@@ -1420,10 +1402,7 @@ module Win32
         raise Error,get_last_error
       end
 
-      str = 0.chr * 256
-      wcscpy(str, ptr.unpack('L').first)
-      CoTaskMemFree(ptr.unpack('L').first)
-      wide_to_multi(str)
+      ptr_to_string(ptr)
     end
 
     # Sets the comment for the task.
@@ -1472,10 +1451,7 @@ module Win32
         raise Error, get_last_error
       end
 
-      str = 0.chr * 256
-      wcscpy(str, ptr.unpack('L').first)
-      CoTaskMemFree(ptr.unpack('L').first)
-      wide_to_multi(str)
+      ptr_to_string(ptr)
     end
 
     # Sets the creator for the task.
@@ -1654,6 +1630,15 @@ module Win32
        'days',
        'weeks'
     ]
+
+    def ptr_to_string(ptr)
+      value = ptr.unpack('L').first
+      length = wcslen(value)
+      buffer = 0.chr * (2 * (length + 1))
+      wcsncpy(buffer, value, length)
+      CoTaskMemFree(value)
+      wide_to_multi(buffer)
+    end
 
     # Private method that validates keys, and converts all keys to lowercase
     # strings.
