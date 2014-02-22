@@ -1,0 +1,16 @@
+diff --git ruby/lib/ruby/gems/1.9.1/gems/win32-security-0.1.4/lib/win32/security/sid.rb ruby/lib/ruby/gems/1.9.1/gems/win32-security-0.1.4/lib/win32/security/sid.rb
+index 732b7d5..7e85555 100644
+--- ruby/lib/ruby/gems/1.9.1/gems/win32-security-0.1.4/lib/win32/security/sid.rb
++++ ruby/lib/ruby/gems/1.9.1/gems/win32-security-0.1.4/lib/win32/security/sid.rb
+@@ -292,7 +292,10 @@ module Win32
+           @sid     = account
+           @account = sid.strip
+         else
+-          @sid     = sid.strip
++          # patch this for now, until we roll to 0.2.3+
++          # https://github.com/djberg96/win32-security/issues/3
++          length = GetLengthSid(sid)
++          @sid = sid[0,length]
+           @account = account
+         end
+ 

@@ -292,7 +292,10 @@ module Win32
           @sid     = account
           @account = sid.strip
         else
-          @sid     = sid.strip
+          # patch this for now, until we roll to 0.2.3+
+          # https://github.com/djberg96/win32-security/issues/3
+          length = GetLengthSid(sid)
+          @sid = sid[0,length]
           @account = account
         end
 
