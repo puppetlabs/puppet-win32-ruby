@@ -1,2 +1,0 @@
-U:RDoc::Attr[iI"	fsck:EFI"Stomp::SSLParams#fsck;FI"R;F:publico:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[I"NClient wants file existance check on initialize. true/value or false/nil.:encoding"IBM437:
-@file0FI"lib/stomp/sslparams.rb;@

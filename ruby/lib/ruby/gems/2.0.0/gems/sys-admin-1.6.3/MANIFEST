@@ -1,0 +1,17 @@
+* sys-admin.gemspec
+* CHANGES
+* MANIFEST
+* Rakefile
+* README
+* examples/groups.rb
+* examples/users.rb
+* lib/sys/admin.rb
+* lib/darwin/sys/admin.rb
+* lib/linux/sys/admin.rb
+* lib/bsd/sys/admin.rb
+* lib/sunos/sys/admin.rb
+* lib/sys/admin/common.rb
+* lib/sys/admin/custom.rb
+* test/test_sys_admin.rb
+* test/test_sys_admin_unix.rb
+* test/test_sys_admin_windows.rb

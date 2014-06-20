@@ -1,2 +1,0 @@
-U:RDoc::Attr[iI"version_info:EFI"*RGen::Util::FileCacheMap#version_info;FI"RW;F:publico:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[I"Hoptional program version info to be associated with the cache files:encoding"IBM437I"Eif the program version changes, cached data will also be invalid;@:
-@file0FI"$lib/rgen/util/file_cache_map.rb;@

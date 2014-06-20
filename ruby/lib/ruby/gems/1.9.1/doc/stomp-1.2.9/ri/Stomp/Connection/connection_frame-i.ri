@@ -1,2 +1,0 @@
-U:RDoc::Attr[iI"connection_frame:EFI"'Stomp::Connection#connection_frame;FI"R;F:publico:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[I")The CONNECTED frame from the broker.:encoding"IBM437:
-@file0FI"lib/stomp/connection.rb;@

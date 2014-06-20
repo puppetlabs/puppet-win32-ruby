@@ -1,2 +1,0 @@
-U:RDoc::Attr[iI"ctx:EFI"Stomp::SSLParams#ctx;FI"RW;F:publico:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[I"VBack reference to the OpenSSL::SSL::SSLContext instance, gem sets before connect.:encoding"IBM437:
-@file0FI"lib/stomp/sslparams.rb;@
