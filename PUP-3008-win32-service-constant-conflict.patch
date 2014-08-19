@@ -1,0 +1,70 @@
+From 5202c6d35093ae746977d25417084609014086d5 Mon Sep 17 00:00:00 2001
+From: Daniel Berger <djberg96@gmail.com>
+Date: Fri, 15 Aug 2014 19:46:21 -0600
+Subject: [PATCH] Renamed to the constants module to avoid potential name
+ clashes, and bumped the versions.
+
+---
+ lib/win32/daemon.rb            | 4 ++--
+ lib/win32/service.rb           | 4 ++--
+ lib/win32/windows/constants.rb | 2 +-
+ 3 files changed, 5 insertions(+), 5 deletions(-)
+
+diff --git a/lib/win32/daemon.rb b/lib/win32/daemon.rb
+index f8d7861..d46cf4e 100644
+--- a/lib/win32/daemon.rb
++++ b/lib/win32/daemon.rb
+@@ -10,7 +10,7 @@ module Win32
+ 
+   # The Daemon class
+   class Daemon
+-    include Windows::Constants
++    include Windows::ServiceConstants
+     include Windows::Structs
+     include Windows::Functions
+ 
+@@ -18,7 +18,7 @@ module Win32
+     extend Windows::Functions
+ 
+     # The version of this library
+-    VERSION = '0.8.4'
++    VERSION = '0.8.6'
+ 
+     private
+ 
+diff --git a/lib/win32/service.rb b/lib/win32/service.rb
+index b3fd6b6..134adae 100644
+--- a/lib/win32/service.rb
++++ b/lib/win32/service.rb
+@@ -9,7 +9,7 @@ module Win32
+   # The Service class encapsulates services controller actions, such as
+   # creating, starting, configuring or deleting services.
+   class Service
+-    include Windows::Constants
++    include Windows::ServiceConstants
+     include Windows::Structs
+     include Windows::Functions
+ 
+@@ -17,7 +17,7 @@ module Win32
+     extend Windows::Functions
+ 
+     # The version of the win32-service library
+-    VERSION = '0.8.5'
++    VERSION = '0.8.6'
+ 
+     # SCM security and access rights
+ 
+diff --git a/lib/win32/windows/constants.rb b/lib/win32/windows/constants.rb
+index b6e753d..212d319 100644
+--- a/lib/win32/windows/constants.rb
++++ b/lib/win32/windows/constants.rb
+@@ -1,5 +1,5 @@
+ module Windows
+-  module Constants
++  module ServiceConstants
+     SC_MANAGER_ALL_ACCESS         = 0xF003F
+     SC_MANAGER_CREATE_SERVICE     = 0x0002
+     SC_MANAGER_CONNECT            = 0x0001
+-- 
+1.8.4.msysgit.0
+
