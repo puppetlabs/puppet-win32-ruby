@@ -15,7 +15,7 @@ Gem::Specification.new do |s|
   s.licenses = ["Artistic 2.0"]
   s.require_paths = ["lib"]
   s.rubyforge_project = "win32utils"
-  s.rubygems_version = "1.8.28"
+  s.rubygems_version = "1.8.24"
   s.summary = "A library for dealing with aspects of Windows security."
 
   if s.respond_to? :specification_version then
