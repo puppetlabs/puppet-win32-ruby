@@ -1,6 +1,6 @@
 arch=x64-mingw32
 sitearch=x64-msvcrt
-prefix=C:/jenkins/workspace/WindowsRubyBuilds/RUBYVER/2.1.8-x64/label/win-build/sandbox/ruby21_mingw
+prefix=C:/jenkins/workspace/WindowsRubyBuilds/RUBYVER/2.1.9-x64/label/win-build/sandbox/ruby21_mingw
 exec_prefix=${prefix}
 bindir=${exec_prefix}/bin
 libdir=${exec_prefix}/lib
@@ -9,7 +9,7 @@ MAJOR=2
 MINOR=1
 TEENY=0
 ruby_version=2.1.0
-RUBY_PROGRAM_VERSION=2.1.8
+RUBY_PROGRAM_VERSION=2.1.9
 RUBY_BASE_NAME=ruby
 RUBY_VERSION_NAME=${RUBY_BASE_NAME}-${ruby_version}
 RUBY_SO_NAME=x64-msvcrt-${RUBY_BASE_NAME}${MAJOR}${MINOR}${TEENY}
