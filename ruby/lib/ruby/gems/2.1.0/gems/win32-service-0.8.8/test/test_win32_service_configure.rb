@@ -4,6 +4,7 @@
 # Test suite that validates the Service.configure method.
 #######################################################################
 require 'test-unit'
+require 'win32/security'
 require 'win32/service'
 
 class TC_Win32_Service_Configure < Test::Unit::TestCase
@@ -11,10 +12,12 @@ class TC_Win32_Service_Configure < Test::Unit::TestCase
     @@service = "notepad_service"
     @@command = "C:\\windows\\system32\\notepad.exe"
 
-    Win32::Service.new(
-      :service_name     => @@service,
-      :binary_path_name => @@command
-    )
+    if Win32::Security.elevated_security?
+      Win32::Service.new(
+        :service_name     => @@service,
+        :binary_path_name => @@command
+      )
+    end
   end
 
   def config_info
@@ -39,7 +42,8 @@ class TC_Win32_Service_Configure < Test::Unit::TestCase
   end
 
   def setup
-    @info = Win32::Service.config_info(@@service)
+    @elevated = Win32::Security.elevated_security?
+    @info = Win32::Service.config_info(@@service) if @elevated
   end
 
   test "configure method is defined" do
@@ -47,36 +51,30 @@ class TC_Win32_Service_Configure < Test::Unit::TestCase
   end
 
   test "configuring the service type works as expected" do
+    omit_unless(@elevated)
     assert_equal('own process', config_info.service_type)
     service_configure(:service_type => Win32::Service::WIN32_SHARE_PROCESS)
     assert_equal('share process', config_info.service_type)
   end
 
   test "configuring the description works as expected" do
+    omit_unless(@elevated)
     assert_equal('', full_info.description)
     service_configure(:description => 'test service')
     assert_equal('test service', full_info.description)
   end
 
   test "configuring the start type works as expected" do
+    omit_unless(@elevated)
     assert_equal('demand start', config_info.start_type)
     service_configure(:start_type => Win32::Service::DISABLED)
     assert_equal('disabled', config_info.start_type)
   end
 
-  test "service start can be delayed on Windows versions newer than 2003" do
-    omit_if(Win32::Service.windows_version < 6)
+  test "service start can be delayed" do
+    omit_unless(@elevated)
     service_configure(:start_type => Win32::Service::AUTO_START, :delayed_start => true)
-    assert_true(full_info.delayed_start)
-  end
-
-  test "service start cannot be delayed on Windows versions older than 2003" do
-    omit_if(Win32::Service.windows_version >= 6)
-    assert_raise(ArgumentError){
-      Win32::Service.configure(
-      :service_name => @@service,
-      :start_type => Win32::Service::AUTO_START, :delayed_start => true)
-    }
+    assert_equal(1, full_info.delayed_start)
   end
 
   test "the configure method requires one argument" do
@@ -99,10 +97,13 @@ class TC_Win32_Service_Configure < Test::Unit::TestCase
 
   def teardown
     @info = nil
+    @elevated = nil
   end
 
   def self.shutdown
-    Win32::Service.delete(@@service) if Win32::Service.exists?(@@service)
+    if Win32::Service.exists?(@@service) && Win32::Security.elevated_security?
+      Win32::Service.delete(@@service)
+    end
     @@service = nil
     @@command = nil
   end
