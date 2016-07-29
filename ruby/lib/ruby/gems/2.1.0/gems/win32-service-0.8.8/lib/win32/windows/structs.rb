@@ -1,13 +1,10 @@
 require 'ffi'
 
 module Windows
-  module Structs
+  module ServiceStructs
     extend FFI::Library
 
-    typedef :uchar, :byte
-    typedef :uint16, :word
     typedef :ulong, :dword
-
 
     class SERVICE_STATUS < FFI::Struct
       layout(
@@ -40,7 +37,16 @@ module Windows
     end
 
     class SERVICE_DELAYED_AUTO_START_INFO < FFI::Struct
-      layout(:fDelayedAutostart, :bool)
+      layout(:fDelayedAutostart, :int) # BOOL
+
+      alias aset []=
+
+      # Intercept the accessor so that we can handle either true/false or 1/0.
+      # Since there is only one member, there's no need to check the key name.
+      #
+      def []=(key, value)
+        [0, false].include?(value) ? aset(key, 0) : aset(key, 1)
+      end
     end
 
     class QUERY_SERVICE_CONFIG < FFI::Struct
@@ -118,22 +124,6 @@ module Windows
       layout(
         :PrivilegeCount, :dword,
         :Privileges, [LUID_AND_ATTRIBUTES, 1]
-      )
-    end
-
-    class OSVERSIONINFO < FFI::Struct
-      layout(
-        :dwOSVersionInfoSize, :dword,
-        :dwMajorVersion, :dword,
-        :dwMinorVersion, :dword,
-        :dwBuildNumber, :dword,
-        :dwPlatformId, :dword,
-        :szCSDVersion, [:uint16, 128],
-        :wServicePackMajor, :word,
-        :wServicePackMinor, :word,
-        :wSuiteMask, :word,
-        :wProductType, :byte,
-        :wReserved, :byte,
       )
     end
   end
