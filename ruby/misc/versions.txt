@@ -1,0 +1,16 @@
+curl 7.46.0
+openssl 1.0.2h
+puppet-ca-bundle 1.0.7
+ruby 2.3.1
+ruby-stomp 1.3.3
+rubygem-deep-merge 1.0.1
+rubygem-ffi 1.9.14
+rubygem-hocon 0.9.3
+rubygem-minitar 0.5.4
+rubygem-net-ssh 2.9.2
+rubygem-win32-dir 0.4.9
+rubygem-win32-eventlog 0.6.2
+rubygem-win32-process 0.7.4
+rubygem-win32-security 0.2.5
+rubygem-win32-service 0.8.8
+runtime 

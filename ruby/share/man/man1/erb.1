@@ -1,179 +1,157 @@
-.TH ERB 1 "Ruby Programmers Reference Guide" "November 7, 2012" "UNIX"
-.SH NAME
-\fBerb\fP
-\- Ruby Templating
-.SH SYNOPSIS
-.br
-\fBerb\fP
-[\fB\--version\fP]
-[\fB\-UPdnvx\fP]
-[\fB\-E\fP \fIext\fP[]]:int
-[\fB\-S\fP \fIlevel\fP]
-[\fB\-T\fP \fImode\fP]
-[\fB\-r\fP \fIlibrary\fP]
-[\fB\--\fP]
-[file ...]
-
-.SH DESCRIPTION
-\fBerb\fP
+.\"Ruby is copyrighted by Yukihiro Matsumoto <matz@netlab.jp>.
+.Dd November 15, 2012
+.Dt ERB(1) "" "Ruby Programmers Reference Guide"
+.Os UNIX
+.Sh NAME
+.Nm erb
+.Nd Ruby Templating
+.Sh SYNOPSIS
+.Nm
+.Op Fl -version
+.Op Fl UPdnvx
+.Op Fl E Ar ext Ns Op Ns : Ns int
+.Op Fl S Ar level
+.Op Fl T Ar mode
+.Op Fl r Ar library
+.Op Fl -
+.Op file ...
+.Pp
+.Sh DESCRIPTION
+.Nm
 is a command line front-end for
-"ERB"
+.Li "ERB"
 library, which is an implementation of eRuby.
-
+.Pp
 ERB provides an easy to use but powerful templating system for Ruby.
 Using ERB, actual Ruby code can be added to any plain text document for the
 purposes of generating document information details and/or flow control.
-
-\fBerb\fP
+.Pp
+.Nm
 is a part of
-\fBRuby\fP.
-
-.SH OPTIONS
-
-.TP
-\fB\--version\fP
+.Nm Ruby .
+.Pp
+.Sh OPTIONS
+.Bl -tag -width "1234567890123" -compact
+.Pp
+.It Fl -version
 Prints the version of
-\fB.\fP
-
-.TP
-\fB\-E\fP \fIexternal\fP[]:\fIinternal\fP
-.TP
-\fB\--encoding\fP \fIexternal\fP[]:\fIinternal\fP
+.Nm .
+.Pp
+.It Fl E Ar external Ns Op : Ns Ar internal
+.It Fl -encoding Ar external Ns Op : Ns Ar internal
 Specifies the default value(s) for external encodings and internal encoding. Values should be separated with colon (:).
-
+.Pp
 You can omit the one for internal encodings, then the value
-("Encoding.default_internal") will be nil.
-
-.TP
-\fB\-P\fP
+.Pf ( Li "Encoding.default_internal" ) will be nil.
+.Pp
+.It Fl P
 Evaluates lines starting with
-"%"
+.Li "%"
 as Ruby code and removes the tailing EOLs.
-
-.TP
-\fB\-S\fP \fIlevel\fP
+.Pp
+.It Fl S Ar level
 Specifies the safe level in which eRuby script will run.
-
-.TP
-\fB\-T\fP \fImode\fP
+.Pp
+.It Fl T Ar mode
 Specifies trim mode (default 0).
-\fImode\fP
+.Ar mode
 can be one of
-.TP
-.B 0
+.Bl -hang -offset indent
+.It Sy 0
 EOL remains after the embedded ruby script is evaluated.
-
-.TP
-.B 1
+.Pp
+.It Sy 1
 EOL is removed if the line ends with
-"%>".
-
-.TP
-.B 2
+.Li "%>" .
+.Pp
+.It Sy 2
 EOL is removed if the line starts with
-"<%"
+.Li "<%"
 and ends with
-"%>".
-
-.TP
-.B -
+.Li "%>" .
+.Pp
+.It Sy -
 EOL is removed if the line ends with
-"-%>".
+.Li "-%>" .
 And leading whitespaces are removed if the erb directive starts with
-"<%-".
-
-
-.TP
-\fB\-U\fP
+.Li "<%-" .
+.Pp
+.El
+.Pp
+.It Fl U
 can be one of
 Sets the default value for internal encodings
-("Encoding.default_internal") to UTF-8.
-
-.TP
-\fB\-d\fP
-.TP
-\fB\--debug\fP
+.Pf ( Li "Encoding.default_internal" ) to UTF-8.
+.Pp
+.It Fl d
+.It Fl -debug
 Turns on debug mode.
-"$DEBUG"
+.Li "$DEBUG"
 will be set to true.
-
-.TP
-\fB\-h\fP
-.TP
-\fB\--help\fP
+.Pp
+.It Fl h
+.It Fl -help
 Prints a summary of the options.
-
-.TP
-\fB\-n\fP
+.Pp
+.It Fl n
 Used with
-\fB\-x\fP.
+.Fl x .
 Prepends the line number to each line in the output.
-
-.TP
-\fB\-v\fP
+.Pp
+.It Fl v
 Enables verbose mode.
-"$VERBOSE"
+.Li "$VERBOSE"
 will be set to true.
-
-.TP
-\fB\-x\fP
+.Pp
+.It Fl x
 Converts the eRuby script into Ruby script and prints it without line numbers.
-
-
-.SH EXAMPLES
+.Pp
+.El
+.Pp
+.Sh EXAMPLES
 Here is an eRuby script
-
+.Bd -literal -offset indent
 <?xml version="1.0" ?>
-.br
 <% require 'prime' -%>
-.br
 <erb-example>
-.br
   <calc><%= 1+1 %></calc>
-.br
   <var><%= __FILE__ %></var>
-.br
   <library><%= Prime.each(10).to_a.join(", ") %></library>
-.br
 </erb-example>
-.br
-
+.Ed
+.Pp
 Command
-.nf
-\&  "% erb -T - example.erb"
-.fi
+.Dl "% erb -T - example.erb"
 prints
-
+.Bd -literal -offset indent
 <?xml version="1.0" ?>
-.br
 <erb-example>
-.br
   <calc>2</calc>
-.br
   <var>example.erb</var>
-.br
   <library>2, 3, 5, 7</library>
-.br
 </erb-example>
-.br
-
-.SH SEE ALSO
-\fBruby\fP(1).
-
+.Ed
+.Pp
+.Sh SEE ALSO
+.Xr ruby 1 .
+.Pp
 And see
-\fBri\fP(1)
+.Xr ri 1
 documentation for
-"ERB"
+.Li "ERB"
 class.
-
-.SH REPORTING BUGS
-Security vulnerabilities should be reported via an email to
-<security@ruby-lang.org>
+.Pp
+.Sh REPORTING BUGS
+.Bl -bullet
+.Li Security vulnerabilities should be reported via an email to
+.Aq security@ruby-lang.org Ns
+.Li .
 Reported problems will be published after being fixed.
-
-And you can report other bugs and feature requests via the
+.Pp
+.Li And you can report other bugs and feature requests via the
 Ruby Issue Tracking System (http://bugs.ruby-lang.org).
 Do not report security vulnerabilities
 via the system because it publishes the vulnerabilities immediately.
-.SH AUTHORS
+.El
+.Sh AUTHORS
 Written by Masatoshi SEKI.

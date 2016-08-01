@@ -1,219 +1,173 @@
-.TH IRB 1 "Ruby Programmers Reference Guide" "November 7, 2012" "UNIX"
-.SH NAME
-\fBirb\fP
-\- Interactive Ruby Shell
-.SH SYNOPSIS
-.br
-\fBirb\fP
-[\fB\--version\fP]
-[\fB\-dfm\fP]
-[\fB\-I\fP \fIdirectory\fP]
-[\fB\-r\fP \fIlibrary\fP]
-[\fB\--\fP[no]inspect]
-[\fB\--\fP[no]readline]
-[\fB\--prompt\fP \fImode\fP]
-[\fB\--prompt-mode\fP \fImode\fP]
-[\fB\--inf-ruby-mode\fP]
-[\fB\--simple-prompt\fP]
-[\fB\--noprompt\fP]
-[\fB\--tracer\fP]
-[\fB\--back-trace-limit\fP \fIn\fP]
-[\fB\--irb_debug\fP \fIn\fP]
-[\fB\--\fP]
-[program_file]
-[argument ...]
-
-.SH DESCRIPTION
-\fBirb\fP
+.\"Ruby is copyrighted by Yukihiro Matsumoto <matz@netlab.jp>.
+.Dd November 15, 2012
+.Dt IRB(1) "" "Ruby Programmers Reference Guide"
+.Os UNIX
+.Sh NAME
+.Nm irb
+.Nd Interactive Ruby Shell
+.Sh SYNOPSIS
+.Nm
+.Op Fl -version
+.Op Fl dfm
+.Op Fl I Ar directory
+.Op Fl r Ar library
+.Op Fl - Ns Oo no Oc Ns inspect
+.Op Fl - Ns Oo no Oc Ns readline
+.Op Fl -prompt Ar mode
+.Op Fl -prompt-mode Ar mode
+.Op Fl -inf-ruby-mode
+.Op Fl -simple-prompt
+.Op Fl -noprompt
+.Op Fl -tracer
+.Op Fl -back-trace-limit Ar n
+.Op Fl -irb_debug Ar n
+.Op Fl -
+.Op program_file
+.Op argument ...
+.Pp
+.Sh DESCRIPTION
+.Nm
 is the REPL(read-eval-print loop) environment for Ruby programs.
-
-.SH OPTIONS
-
-.TP
-\fB\--version\fP
+.Pp
+.Sh OPTIONS
+.Bl -tag -width "1234567890123" -compact
+.Pp
+.It Fl -version
 Prints the version of
-\fB.\fP
-
-.TP
-\fB\-E\fP \fIexternal\fP[]:\fIinternal\fP
-.TP
-\fB\--encoding\fP \fIexternal\fP[]:\fIinternal\fP
+.Nm .
+.Pp
+.It Fl E Ar external Ns Op : Ns Ar internal
+.It Fl -encoding Ar external Ns Op : Ns Ar internal
 Same as `ruby -E' .
 Specifies the default value(s) for external encodings and internal encoding. Values should be separated with colon (:).
-
+.Pp
 You can omit the one for internal encodings, then the value
-("Encoding.default_internal") will be nil.
-
-.TP
-\fB\-I\fP \fIpath\fP
+.Pf ( Li "Encoding.default_internal" ) will be nil.
+.Pp
+.It Fl I Ar path
 Same as `ruby -I' .
 Specifies
-$LOAD_PATH
+.Li $LOAD_PATH
 directory
-
-.TP
-\fB\-U\fP
+.Pp
+.It Fl U
 Same as `ruby -U' .
 Sets the default value for internal encodings
-("Encoding.default_internal") to UTF-8.
-
-.TP
-\fB\-d\fP
+.Pf ( Li "Encoding.default_internal" ) to UTF-8.
+.Pp
+.It Fl d
 Same as `ruby -d' .
 Sets
-$DEBUG
+.Li $DEBUG
 to true.
-
-.TP
-\fB\-f\fP
+.Pp
+.It Fl f
 Suppresses read of
-\fI~/.irbrc\fP.
-
-.TP
-\fB\-h\fP
-.TP
-\fB\--help\fP
+.Pa ~/.irbrc .
+.Pp
+.It Fl h
+.It Fl -help
 Prints a summary of the options.
-
-.TP
-\fB\-m\fP
+.Pp
+.It Fl m
 Bc mode (load mathn, fraction or matrix are available)
-
-.TP
-\fB\-r\fP \fIlibrary\fP
+.Pp
+.It Fl r Ar library
 Same as `ruby -r'.
 Causes irb to load the library using require.
-
-.TP
-\fB\--inspect\fP
+.Pp
+.It Fl -inspect
 Uses `inspect' for output (default except for bc mode)
-
-.TP
-\fB\--noinspect\fP
+.Pp
+.It Fl -noinspect
 Doesn't use inspect for output
-
-.TP
-\fB\--readline\fP
+.Pp
+.It Fl -readline
 Uses Readline extension module.
-
-.TP
-\fB\--noreadline\fP
+.Pp
+.It Fl -noreadline
 Doesn't use Readline extension module.
-
-.TP
-\fB\--prompt\fP \fImode\fP
-.TP
-\fB\--prompt-mode\fP \fImode\fP
+.Pp
+.It Fl -prompt Ar mode
+.It Fl -prompt-mode Ar mode
 Switch prompt mode. Pre-defined prompt modes are
 `default', `simple', `xmp' and `inf-ruby'.
-
-.TP
-\fB\--inf-ruby-mode\fP
+.Pp
+.It Fl -inf-ruby-mode
 Uses prompt appropriate for inf-ruby-mode on emacs.
 Suppresses --readline.
-
-.TP
-\fB\--simple-prompt\fP
+.Pp
+.It Fl -simple-prompt
 Makes prompts simple.
-
-.TP
-\fB\--noprompt\fP
+.Pp
+.It Fl -noprompt
 No prompt mode.
-
-.TP
-\fB\--tracer\fP
+.Pp
+.It Fl -tracer
 Displays trace for each execution of commands.
-
-.TP
-\fB\--back-trace-limit\fP \fIn\fP
+.Pp
+.It Fl -back-trace-limit Ar n
 Displays backtrace top
-\fIn\fP
+.Ar n
 and tail
-\fIn\fP.
+.Ar n Ns .
 The default value is 16.
-
-.TP
-\fB\--irb_debug\fP \fIn\fP
+.Pp
+.It Fl -irb_debug Ar n
 Sets internal debug level to n (not for popular use)
-
-
-.SH ENVIRONMENT
-.TP
-.B IRBRC
-
-
+.Pp
+.El
+.Pp
+.Sh ENVIRONMENT
+.Bl -tag -width "RUBYLIB_PREFIX" -compact
+.It Ev IRBRC
+.Pp
+.El
+.Pp
 Also
-\fBirb\fP
+.Nm
 depends on same variables as
-\fBruby\fP(1).
-
-.SH FILES
-.TP
-.B ~/.irbrc
+.Xr ruby 1 .
+.Pp
+.Sh FILES
+.Bl -tag -width "RUBYLIB_PREFIX" -compact
+.It Pa ~/.irbrc
 Personal irb initialization.
-
-
-.SH EXAMPLES
-.nf
-\&  % irb
-.fi
-.nf
-\&  irb(main):001:0> \fB1 + 1\fP
-.fi
-.nf
-\&  2
-.fi
-.nf
-\&  irb(main):002:0> \fBdef t(x)\fP
-.fi
-.nf
-\&  irb(main):003:1> \fBx+1\fP
-.fi
-.nf
-\&  irb(main):004:1> \fBend\fP
-.fi
-.nf
-\&  => nil
-.fi
-.nf
-\&  irb(main):005:0> \fBt(3)\fP
-.fi
-.nf
-\&  => 4
-.fi
-.nf
-\&  irb(main):006:0> \fBif t(3) == 4\fP
-.fi
-.nf
-\&  irb(main):007:1> \fBp :ok\fP
-.fi
-.nf
-\&  irb(main):008:1> \fBend\fP
-.fi
-.nf
-\&  :ok
-.fi
-.nf
-\&  => :ok
-.fi
-.nf
-\&  irb(main):009:0> \fBquit\fP
-.fi
-.nf
-\&  %
-.fi
-
-.SH SEE ALSO
-\fBruby\fP(1).
-
-.SH REPORTING BUGS
-Security vulnerabilities should be reported via an email to
-<security@ruby-lang.org>
+.Pp
+.El
+.Pp
+.Sh EXAMPLES
+.Dl % irb
+.Dl irb(main):001:0> Ic 1 + 1
+.Dl 2
+.Dl irb(main):002:0> Ic def t(x)
+.Dl irb(main):003:1> Ic   x+1
+.Dl irb(main):004:1> Ic end
+.Dl => nil
+.Dl irb(main):005:0> Ic t(3)
+.Dl => 4
+.Dl irb(main):006:0> Ic if t(3) == 4
+.Dl irb(main):007:1> Ic p :ok
+.Dl irb(main):008:1> Ic end
+.Dl :ok
+.Dl => :ok
+.Dl irb(main):009:0> Ic quit
+.Dl %
+.Pp
+.Sh SEE ALSO
+.Xr ruby 1 .
+.Pp
+.Sh REPORTING BUGS
+.Bl -bullet
+.Li Security vulnerabilities should be reported via an email to
+.Aq security@ruby-lang.org Ns
+.Li .
 Reported problems will be published after being fixed.
-
-And you can report other bugs and feature requests via the
+.Pp
+.Li And you can report other bugs and feature requests via the
 Ruby Issue Tracking System (http://bugs.ruby-lang.org).
 Do not report security vulnerabilities
 via the system because it publishes the vulnerabilities immediately.
-.SH AUTHORS
+.El
+.Sh AUTHORS
 Written by Keiju ISHITSUKA.
