@@ -1,4 +1,3 @@
-#!/usr/bin/env ruby
 #
 #  RDoc: Documentation tool for source code
 #        (see lib/rdoc/rdoc.rb for more information)
