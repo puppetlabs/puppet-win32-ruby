@@ -1,6 +1,6 @@
 arch=i386-mingw32
 sitearch=i386-msvcrt
-prefix=C:/ProgramFilesFolder/Puppet/ruby
+prefix=C:/ProgramFilesFolder/PuppetLabs/Puppet/sys/ruby
 exec_prefix=${prefix}
 bindir=${exec_prefix}/bin
 libdir=${exec_prefix}/lib
@@ -45,7 +45,7 @@ LIBRUBYARG_SHARED=-l${RUBY_SO_NAME}
 LIBRUBYARG_STATIC=-l${RUBY_SO_NAME}-static
 LIBRUBYARG=${LIBRUBYARG_SHARED}
 LIBS=-lshell32 -lws2_32 -liphlpapi -limagehlp -lshlwapi 
-DLDFLAGS= -Wl,--enable-auto-image-base,--enable-auto-import -LC/lib -L/ProgramFilesFolder/Puppet/tools/lib ${DEFFILE}
+DLDFLAGS= -Wl,--enable-auto-image-base,--enable-auto-import -LC/lib -L/ProgramFilesFolder/PuppetLabs/Puppet/puppet/lib ${DEFFILE}
 
 Name: Ruby
 Description: Object Oriented Script Language
